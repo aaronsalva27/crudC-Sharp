@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbempresaModelStoreContainer" CdmEntityContainer="dbempresaEntities">
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="dbempresaModel.clients">
+        <MappingFragment StoreEntitySet="clients">
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="cognom1" ColumnName="cognom1" />
+          <ScalarProperty Name="cognom2" ColumnName="cognom2" />
+          <ScalarProperty Name="adreça" ColumnName="adreça" />
+          <ScalarProperty Name="codi_postal" ColumnName="codi_postal" />
+          <ScalarProperty Name="poblacio" ColumnName="poblacio" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="factura">
+      <EntityTypeMapping TypeName="dbempresaModel.factura">
+        <MappingFragment StoreEntitySet="factura">
+          <ScalarProperty Name="n_factura" ColumnName="n_factura" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descompte" ColumnName="descompte" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="factura_detall">
+      <EntityTypeMapping TypeName="dbempresaModel.factura_detall">
+        <MappingFragment StoreEntitySet="factura_detall">
+          <ScalarProperty Name="id_factura_detall" ColumnName="id_factura_detall" />
+          <ScalarProperty Name="n_factura" ColumnName="n_factura" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="quantitat" ColumnName="quantitat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productes">
+      <EntityTypeMapping TypeName="dbempresaModel.productes">
+        <MappingFragment StoreEntitySet="productes">
+          <ScalarProperty Name="id_produte" ColumnName="id_produte" />
+          <ScalarProperty Name="producte" ColumnName="producte" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

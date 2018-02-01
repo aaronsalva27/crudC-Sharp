@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbempresaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="clients">
+    <Key>
+      <PropertyRef Name="id_client" />
+    </Key>
+    <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cognom1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cognom2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adreça" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codi_postal" Type="Int32" Nullable="false" />
+    <Property Name="poblacio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefon" Type="Int32" Nullable="false" />
+    <Property Name="fax" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="factura_detall" Relationship="Self.fk_client" FromRole="clients" ToRole="factura_detall" />
+    <NavigationProperty Name="factura" Relationship="Self.fk_id_client" FromRole="clients" ToRole="factura" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="n_factura" />
+    </Key>
+    <Property Name="n_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_client" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" />
+    <Property Name="descompte" Type="Int32" />
+    <Property Name="iva" Type="Int32" />
+    <NavigationProperty Name="clients" Relationship="Self.fk_id_client" FromRole="factura" ToRole="clients" />
+    <NavigationProperty Name="factura_detall" Relationship="Self.fk_n_factura" FromRole="factura" ToRole="factura_detall" />
+  </EntityType>
+  <EntityType Name="factura_detall">
+    <Key>
+      <PropertyRef Name="id_factura_detall" />
+    </Key>
+    <Property Name="id_factura_detall" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="n_factura" Type="Int32" />
+    <Property Name="id_client" Type="Int32" />
+    <Property Name="quantitat" Type="Int32" />
+    <NavigationProperty Name="clients" Relationship="Self.fk_client" FromRole="factura_detall" ToRole="clients" />
+    <NavigationProperty Name="factura" Relationship="Self.fk_n_factura" FromRole="factura_detall" ToRole="factura" />
+  </EntityType>
+  <EntityType Name="productes">
+    <Key>
+      <PropertyRef Name="id_produte" />
+    </Key>
+    <Property Name="id_produte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="producte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="preu" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_client">
+    <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
+    <End Role="factura_detall" Type="Self.factura_detall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="factura_detall">
+        <PropertyRef Name="id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_client">
+    <End Role="clients" Type="Self.clients" Multiplicity="1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_n_factura">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="factura_detall" Type="Self.factura_detall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="n_factura" />
+      </Principal>
+      <Dependent Role="factura_detall">
+        <PropertyRef Name="n_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbempresaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clients" EntityType="Self.clients" />
+    <EntitySet Name="factura" EntityType="Self.factura" />
+    <EntitySet Name="factura_detall" EntityType="Self.factura_detall" />
+    <EntitySet Name="productes" EntityType="Self.productes" />
+    <AssociationSet Name="fk_client" Association="Self.fk_client">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="factura_detall" EntitySet="factura_detall" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_client" Association="Self.fk_id_client">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_n_factura" Association="Self.fk_n_factura">
+      <End Role="factura" EntitySet="factura" />
+      <End Role="factura_detall" EntitySet="factura_detall" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

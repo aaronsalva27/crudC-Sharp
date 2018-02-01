@@ -5,11 +5,14 @@ C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.csproj.CoreCompileInputs.cache
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.exe
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.pdb
-C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\CRUDEmpresa.exe.config
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\EntityFramework.dll
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\MySql.Data.dll
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\EntityFramework.xml
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.login.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.menu.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.ClientView.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\CRUDEmpresa.exe.config
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.csprojResolveAssemblyReference.cache

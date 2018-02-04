@@ -20,6 +20,7 @@ namespace CRUDEmpresa
             InitializeComponent();
             this.FormClosed += new FormClosedEventHandler(this.menu_FormClosed);
             //MdiParent = this;
+            this.tableLayoutPanel1.Dock = DockStyle.Fill;
         }
 
         private void menu_FormClosed(object sender, FormClosedEventArgs e)
@@ -27,30 +28,7 @@ namespace CRUDEmpresa
             Application.Exit();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            ToolStripMenuItem item = e.ClickedItem as ToolStripMenuItem;
-            if (item != null)
-            {
-                string url = item.Tag as String;
-                this.statusLabel.Text = url;
-
-                switch(url)
-                {
-                    case "clientes":
-                        panel1.Controls.Clear();
-                        panel1.Controls.Add(new ClientControl());
-                        break;
-
-                    case "productos":
-                        panel1.Controls.Clear();
-                        panel1.Controls.Add(new ProductosControl());
-                        break;
-                    default:
-                        break;
-                }
-            };
-        }
+       
 
         private void FlowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
         {
@@ -71,14 +49,24 @@ namespace CRUDEmpresa
             dataGridView1.Refresh();*/
         }
 
-        private void clientsBindingSource1_CurrentChanged(object sender, EventArgs e)
+        private void btnProductes_Click(object sender, EventArgs e)
         {
-
+            this.stripStatusLabel.Text = "Productes";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new ProductosControl());
         }
 
-        private void clientsBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void btnClients_Click(object sender, EventArgs e)
         {
+            this.stripStatusLabel.Text = "Clients";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new ClientControl());
+        }
 
+     
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

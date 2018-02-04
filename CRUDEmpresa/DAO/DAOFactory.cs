@@ -1,4 +1,5 @@
-﻿using CRUDEmpresa.DAO.Usuario;
+﻿using CRUDEmpresa.DAO.Producto;
+using CRUDEmpresa.DAO.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace CRUDEmpresa.DAO
          * Instancia de la clase UusarioDAO
          */
         private UsuarioDAO EmplatBean = null;
+        private ProdutoDAO ProducteBean = null;
         
 
         /**
@@ -30,7 +32,6 @@ namespace CRUDEmpresa.DAO
         {
             //bd  = new BDAccessor();
             //conn = utils.Constant.getConnexion();
-
         }
 
         /**
@@ -45,6 +46,19 @@ namespace CRUDEmpresa.DAO
             }
             return EmplatBean;
         }
-        
+
+        /**
+         * Metodo que devuelve la instancia de la clase UsuarioDAOImpl
+         * @return EmplatBean
+         */
+        public ProdutoDAO getProductoDAO()
+        {
+            if (this.ProducteBean == null)
+            {
+                ProducteBean = new ProductoDAOImpl();
+            }
+            return ProducteBean;
+        }
+
     }
 }

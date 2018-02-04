@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DAOFactory.cs" />
+    <Compile Include="DAO\Producto\ProductoDAOImpl.cs" />
+    <Compile Include="DAO\Producto\ProdutoDAO.cs" />
     <Compile Include="DAO\Usuario\Usuario.cs" />
     <Compile Include="DAO\Usuario\UsuarioDAO.cs" />
     <Compile Include="DAO\Usuario\UsuarioDAOImpl.cs" />

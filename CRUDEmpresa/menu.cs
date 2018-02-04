@@ -53,7 +53,7 @@ namespace CRUDEmpresa
         {
             this.stripStatusLabel.Text = "Productes";
             mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(new ProductosControl());
+            mainPanel.Controls.Add(new ProductosControl(this));
         }
 
         private void btnClients_Click(object sender, EventArgs e)
@@ -67,6 +67,11 @@ namespace CRUDEmpresa
         private void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public void sendMessage(String message)
+        {
+            this.stripStatusLabel.Text = message;
         }
     }
 }

@@ -38,13 +38,13 @@ namespace CRUDEmpresa
                 switch(url)
                 {
                     case "clientes":
-                        /*panel1.Controls.Clear();
-                        ClientView cv = new ClientView();
-                        cv.MdiParent = this.MdiParent;
-                        cv.Show();*/
-                        
-                        //panel1.Controls.Add(cv);
-                        
+                        panel1.Controls.Clear();
+                        panel1.Controls.Add(new ClientControl());
+                        break;
+
+                    case "productos":
+                        panel1.Controls.Clear();
+                        panel1.Controls.Add(new ProductosControl());
                         break;
                     default:
                         break;
@@ -64,11 +64,11 @@ namespace CRUDEmpresa
 
         private void menu_Load(object sender, EventArgs e)
         {
-            var context = new dbempresaEntities();
+            /*var context = new dbempresaEntities();
             BindingSource bi = new BindingSource();
             bi.DataSource = context.clients.ToList();
             dataGridView1.DataSource = bi;
-            dataGridView1.Refresh();
+            dataGridView1.Refresh();*/
         }
 
         private void clientsBindingSource1_CurrentChanged(object sender, EventArgs e)

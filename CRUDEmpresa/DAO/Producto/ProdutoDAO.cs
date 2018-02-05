@@ -11,6 +11,8 @@ namespace CRUDEmpresa.DAO.Producto
     {
         void CrearProducto(productes p);
 
+        void BorrarProducto(int id);
+
         List<productes> LeerProdutos();
 
         productes LeerProducto(int id);

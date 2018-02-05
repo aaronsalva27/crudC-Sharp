@@ -12,7 +12,29 @@ namespace CRUDEmpresa.DAO.Producto
     {
         public void CrearProducto(productes p)
         {
-            throw new NotImplementedException();
+            //Querying with LINQ to Entities 
+            using (var context = new dbempresaEntities())
+            {
+                context.productes.Add(p);
+                context.SaveChanges();
+            }
+        }
+
+        public void BorrarProducto(int id)
+        {
+            using (var context = new dbempresaEntities())
+            {
+                try
+                {
+                    productes prod = context.productes.First(i => i.id_produte == id);
+                    context.productes.Remove(prod);
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.InnerException);
+                }
+            }
         }
 
         public productes LeerProducto(int id)
@@ -20,7 +42,7 @@ namespace CRUDEmpresa.DAO.Producto
             //Querying with LINQ to Entities 
             using (var context = new dbempresaEntities())
             {
-                return  context.productes
+                return context.productes
                                    .Where(s => s.id_produte == id)
                                    .FirstOrDefault();
             }

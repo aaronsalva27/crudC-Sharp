@@ -16,49 +16,92 @@ namespace CRUDEmpresa.views
     {
         private menu parent;
         private int currentProducto;
+        private Boolean newrow;
 
         public ProductosControl(menu parent)
         {
-
             this.parent = parent;
-
             InitializeComponent();
-
             this.Dock = DockStyle.Fill;
         }
 
         private void ProductosControl_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = new DAOFactory().getProductoDAO().LeerProdutos();
-            dataGridView1.Refresh();
+            //dataGridView1.DataSource = new DAOFactory().getProductoDAO().LeerProdutos();
+            // dataGridView1.Refresh();
+
+            var context = new dbempresaEntities();
+            BindingSource bi = new BindingSource();
+            bi.DataSource = context.productes.ToList();
+            dataGridView1.DataSource = bi;
+           
+            initData();
         }
 
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void initData()
         {
 
+            dataGridView1.Columns[0].ReadOnly = true; //make the id column read only
+            //add new button column to the DataGridView
+            //This column displays a delete icon in each row
+            DataGridViewImageColumn delbut = new DataGridViewImageColumn();
+            delbut.Image = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+            delbut.Width = 100;
+            delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns.Add(delbut);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           try
+            try
             {
-               DataGridViewTextBoxCell cellId = (DataGridViewTextBoxCell)
-               dataGridView1.Rows[e.RowIndex].Cells[0];
-
-
-               DataGridViewTextBoxCell cellValue = (DataGridViewTextBoxCell)
-               dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
+                DataGridViewTextBoxCell cellId = (DataGridViewTextBoxCell)
+                dataGridView1.Rows[e.RowIndex].Cells[0];
+                DataGridViewTextBoxCell cellValue = (DataGridViewTextBoxCell)
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 this.currentProducto = int.Parse(cellId.Value.ToString());
-
-
-               this.parent.sendMessage(cellId.Value.ToString()+ " "+cellValue.Value.ToString());
+                this.parent.sendMessage(cellId.Value.ToString() + " " + cellValue.Value.ToString());
             }
             catch (Exception ex)
             {
-                
             }
-          
+
+
+            if (e.ColumnIndex == 3 && e.RowIndex >= 0 && newrow != true) //delete icon button is clicked
+            {
+                int bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                DialogResult result = MessageBox.Show("Quieres eliminar este registro?", "Confirmación", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    //deleteProdute(bid); //delete the record from the producte table
+                    new DAOFactory().getProductoDAO().BorrarProducto(bid);
+                    dataGridView1.Rows.RemoveAt(e.RowIndex); //delete the row from the DataGridView
+                }
+
+            }
+            else if (e.ColumnIndex == 3 && newrow) //save icon button is clicked
+            {
+                try
+                {
+                    String producte = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    int preu = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                    MessageBox.Show("Guardando siguiente registro:\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // addProducto(producte, preu); //add the new row to the producte table
+                    var prod = new productes { producte = producte, preu = preu };
+                    new DAOFactory().getProductoDAO().CrearProducto(prod);
+
+                    newrow = false;
+                    
+                    dataGridView1.Rows[e.RowIndex].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+                    dataGridView1.Refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unable to save the record. The problem might come from the following:\n1. Blank fields\n2. Duplicate record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,6 +109,44 @@ namespace CRUDEmpresa.views
             this.label1.Text = new DAOFactory().getProductoDAO().LeerProducto(this.currentProducto).producte;
 
             tabControl1.SelectedTab = Modify;
+        }
+
+        private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            this.parent.sendMessage("add row  " + dataGridView1.NewRowIndex);
+            newrow = true;
+            dataGridView1.Rows[dataGridView1.NewRowIndex - 1].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/save.png").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
+        {
+            MessageBox.Show("Error happened " + anError.Context.ToString());
+
+            if (anError.Context == DataGridViewDataErrorContexts.Commit)
+            {
+                MessageBox.Show("Commit error");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.CurrentCellChange)
+            {
+                MessageBox.Show("Cell change");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.Parsing)
+            {
+                MessageBox.Show("parsing error");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
+            {
+                MessageBox.Show("leave control error");
+            }
+
+            if ((anError.Exception) is ConstraintException)
+            {
+                DataGridView view = (DataGridView)sender;
+                view.Rows[anError.RowIndex].ErrorText = "an error";
+                view.Rows[anError.RowIndex].Cells[anError.ColumnIndex].ErrorText = "an error";
+
+                anError.ThrowException = false;
+            }
         }
     }
 }

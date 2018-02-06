@@ -113,7 +113,10 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+=======
+>>>>>>> 0a3598e30707bdaf3453b9791d29d43776f92a88
 =======
 >>>>>>> 0a3598e30707bdaf3453b9791d29d43776f92a88
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);

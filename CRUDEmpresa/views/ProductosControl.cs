@@ -40,6 +40,11 @@ namespace CRUDEmpresa.views
             BindingSource bi = new BindingSource();
             bi.DataSource = this.context.productes.ToList();
             dataGridView1.DataSource = bi;
+<<<<<<< HEAD
+=======
+           
+            initData();
+>>>>>>> 0a3598e30707bdaf3453b9791d29d43776f92a88
         }
 
         private void initData()
@@ -90,6 +95,7 @@ namespace CRUDEmpresa.views
                     String producte = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     int preu = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
 
+<<<<<<< HEAD
                     DialogResult result = MessageBox.Show("Guardando siguiente registro:\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
                     {
@@ -104,6 +110,18 @@ namespace CRUDEmpresa.views
                         this.context.SaveChanges();
                         this.loadData();
                     }
+=======
+                    MessageBox.Show("Guardando siguiente registro:\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // addProducto(producte, preu); //add the new row to the producte table
+                    var prod = new productes { producte = producte, preu = preu };
+                    new DAOFactory().getProductoDAO().CrearProducto(prod);
+
+                    newrow = false;
+                    
+                    dataGridView1.Rows[e.RowIndex].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+                    dataGridView1.Refresh();
+>>>>>>> 0a3598e30707bdaf3453b9791d29d43776f92a88
                 }
                 catch (Exception ex)
                 {

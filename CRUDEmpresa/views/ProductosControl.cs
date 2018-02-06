@@ -17,6 +17,7 @@ namespace CRUDEmpresa.views
         private menu parent;
         private int currentProducto;
         private Boolean newrow;
+        private dbempresaEntities context;
 
         public ProductosControl(menu parent)
         {
@@ -30,12 +31,15 @@ namespace CRUDEmpresa.views
             //dataGridView1.DataSource = new DAOFactory().getProductoDAO().LeerProdutos();
             // dataGridView1.Refresh();
 
-            var context = new dbempresaEntities();
-            BindingSource bi = new BindingSource();
-            bi.DataSource = context.productes.ToList();
-            dataGridView1.DataSource = bi;
-           
+            loadData();
             initData();
+        }
+        private void loadData()
+        {
+            this.context = new dbempresaEntities();
+            BindingSource bi = new BindingSource();
+            bi.DataSource = this.context.productes.ToList();
+            dataGridView1.DataSource = bi;
         }
 
         private void initData()
@@ -86,29 +90,26 @@ namespace CRUDEmpresa.views
                     String producte = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     int preu = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
 
-                    MessageBox.Show("Guardando siguiente registro:\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // addProducto(producte, preu); //add the new row to the producte table
-                    var prod = new productes { producte = producte, preu = preu };
-                    new DAOFactory().getProductoDAO().CrearProducto(prod);
-
-                    newrow = false;
-                    
-                    dataGridView1.Rows[e.RowIndex].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
-                    dataGridView1.Refresh();
+                    DialogResult result = MessageBox.Show("Guardando siguiente registro:\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        // addProducto(producte, preu); //add the new row to the producte table
+                        var prod = new productes { producte = producte, preu = preu };
+                        new DAOFactory().getProductoDAO().CrearProducto(prod);
+                        newrow = false;
+                        dataGridView1.Rows[e.RowIndex].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+                        // dataGridView1.EndEdit();
+                        // dataGridView1.Refresh();
+                        dataGridView1.EndEdit();
+                        this.context.SaveChanges();
+                        this.loadData();
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Unable to save the record. The problem might come from the following:\n1. Blank fields\n2. Duplicate record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.label1.Text = new DAOFactory().getProductoDAO().LeerProducto(this.currentProducto).producte;
-
-            tabControl1.SelectedTab = Modify;
         }
 
         private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
@@ -132,7 +133,7 @@ namespace CRUDEmpresa.views
             }
             if (anError.Context == DataGridViewDataErrorContexts.Parsing)
             {
-                MessageBox.Show("parsing error");
+                MessageBox.Show("Parsing error");
             }
             if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
             {
@@ -144,8 +145,26 @@ namespace CRUDEmpresa.views
                 DataGridView view = (DataGridView)sender;
                 view.Rows[anError.RowIndex].ErrorText = "an error";
                 view.Rows[anError.RowIndex].Cells[anError.ColumnIndex].ErrorText = "an error";
-
                 anError.ThrowException = false;
+            }
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "0")
+            {
+                try
+                {
+                    this.parent.sendMessage("valuechanged" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    dataGridView1.EndEdit();
+                    this.context.SaveChanges();
+                    this.loadData();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException execp)
+                {
+                    MessageBox.Show(execp.InnerException.Message);
+                }
+
             }
         }
     }

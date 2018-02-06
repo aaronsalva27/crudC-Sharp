@@ -17,6 +17,7 @@ namespace CRUDEmpresa.views
         private menu parent;
         private int currentProducto;
         private Boolean newrow;
+        private dbempresaEntities context;
 
         public ProductosControl(menu parent)
         {
@@ -30,17 +31,15 @@ namespace CRUDEmpresa.views
             //dataGridView1.DataSource = new DAOFactory().getProductoDAO().LeerProdutos();
             // dataGridView1.Refresh();
 
-            var context = new dbempresaEntities();
-            BindingSource bi = new BindingSource();
-            bi.DataSource = context.productes.ToList();
-            dataGridView1.DataSource = bi;
-           
-
-            this.dataGridView1.CellValidating += new
-            DataGridViewCellValidatingEventHandler(dataGridView1_CellValidating);
-            this.dataGridView1.CellEndEdit += new
-                DataGridViewCellEventHandler(dataGridView1_CellEndEdit);
+            loadData();
             initData();
+        }
+        private void loadData()
+        {
+            this.context = new dbempresaEntities();
+            BindingSource bi = new BindingSource();
+            bi.DataSource = this.context.productes.ToList();
+            dataGridView1.DataSource = bi;
         }
 
         private void initData()
@@ -54,29 +53,6 @@ namespace CRUDEmpresa.views
             delbut.Width = 100;
             delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns.Add(delbut);
-        }
-
-        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            string headerText =
-           dataGridView1.Columns[e.ColumnIndex].HeaderText;
-
-            // Abort validation if cell is not in the CompanyName column.
-            if (!headerText.Equals("CompanyName")) return;
-
-            // Confirm that the cell is not empty.
-            if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-            {
-                dataGridView1.Rows[e.RowIndex].ErrorText =
-                    "Company Name must not be empty";
-                e.Cancel = true;
-            }
-        }
-
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            // Clear the row error in case the user presses ESC.   
-            dataGridView1.Rows[e.RowIndex].ErrorText = String.Empty;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -111,19 +87,23 @@ namespace CRUDEmpresa.views
             {
                 try
                 {
-                    int bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                     String producte = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     int preu = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
 
-                    MessageBox.Show("Guardando siguiente registro:\n" + bid.ToString() + "\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // addProducto(producte, preu); //add the new row to the producte table
-                    var prod = new productes { producte = producte, preu = preu };
-                    new DAOFactory().getProductoDAO().CrearProducto(prod);
-
-                    newrow = false;
-                    dataGridView1.Columns[0].ReadOnly = true;
-                    dataGridView1.Rows[e.RowIndex].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+                    DialogResult result = MessageBox.Show("Guardando siguiente registro:\n" + producte.ToString() + "\n" + preu.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        // addProducto(producte, preu); //add the new row to the producte table
+                        var prod = new productes { producte = producte, preu = preu };
+                        new DAOFactory().getProductoDAO().CrearProducto(prod);
+                        newrow = false;
+                        dataGridView1.Rows[e.RowIndex].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+                        // dataGridView1.EndEdit();
+                        // dataGridView1.Refresh();
+                        dataGridView1.EndEdit();
+                        this.context.SaveChanges();
+                        this.loadData();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -132,28 +112,11 @@ namespace CRUDEmpresa.views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.label1.Text = new DAOFactory().getProductoDAO().LeerProducto(this.currentProducto).producte;
-
-            tabControl1.SelectedTab = Modify;
-        }
-
         private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             this.parent.sendMessage("add row  " + dataGridView1.NewRowIndex);
             newrow = true;
             dataGridView1.Rows[dataGridView1.NewRowIndex - 1].Cells[3].Value = Image.FromFile(Environment.CurrentDirectory + "/images/save.png").GetThumbnailImage(15, 15, null, IntPtr.Zero);
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.parent.sendMessage("cellcontentclick  " + e.ToString());
-        }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            this.parent.sendMessage("cell value changed  " + e.ToString());
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
@@ -170,7 +133,7 @@ namespace CRUDEmpresa.views
             }
             if (anError.Context == DataGridViewDataErrorContexts.Parsing)
             {
-                MessageBox.Show("parsing error");
+                MessageBox.Show("Parsing error");
             }
             if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
             {
@@ -182,8 +145,26 @@ namespace CRUDEmpresa.views
                 DataGridView view = (DataGridView)sender;
                 view.Rows[anError.RowIndex].ErrorText = "an error";
                 view.Rows[anError.RowIndex].Cells[anError.ColumnIndex].ErrorText = "an error";
-
                 anError.ThrowException = false;
+            }
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "0")
+            {
+                try
+                {
+                    this.parent.sendMessage("valuechanged" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    dataGridView1.EndEdit();
+                    this.context.SaveChanges();
+                    this.loadData();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException execp)
+                {
+                    MessageBox.Show(execp.InnerException.Message);
+                }
+
             }
         }
     }

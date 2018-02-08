@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="dbempresaModelStoreContainer" CdmEntityContainer="dbempresaEntities1">
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="dbempresaModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="clients">
       <EntityTypeMapping TypeName="dbempresaModel.clients">
         <MappingFragment StoreEntitySet="clients">

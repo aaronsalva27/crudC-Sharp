@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\admin.cs">
+      <DependentUpon>Empresa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\clients.cs">
+      <DependentUpon>Empresa.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Cliente\ClienteDAO.cs" />
     <Compile Include="DAO\Cliente\ClienteDAOImpl.cs" />
     <Compile Include="DAO\DAOFactory.cs" />
@@ -78,9 +84,6 @@
     <Compile Include="DAO\Usuario\Usuario.cs" />
     <Compile Include="DAO\Usuario\UsuarioDAO.cs" />
     <Compile Include="DAO\Usuario\UsuarioDAOImpl.cs" />
-    <Compile Include="EntityFramework\clients.cs">
-      <DependentUpon>Empresa.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityFramework\Empresa.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,9 +105,6 @@
     <Compile Include="EntityFramework\factura_detall.cs">
       <DependentUpon>Empresa.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\productes.cs">
-      <DependentUpon>Empresa.tt</DependentUpon>
-    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +116,9 @@
     </Compile>
     <Compile Include="menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\productes.cs">
+      <DependentUpon>Empresa.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

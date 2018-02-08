@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbempresaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="user" />
+    </Key>
+    <Property Name="user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="clients">
     <Key>
       <PropertyRef Name="id_client" />
@@ -86,6 +93,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="dbempresaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin" EntityType="Self.admin" />
     <EntitySet Name="clients" EntityType="Self.clients" />
     <EntitySet Name="factura" EntityType="Self.factura" />
     <EntitySet Name="factura_detall" EntityType="Self.factura_detall" />

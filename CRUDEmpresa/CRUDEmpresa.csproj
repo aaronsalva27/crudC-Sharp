@@ -70,6 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\Cliente\ClienteDAO.cs" />
+    <Compile Include="DAO\Cliente\ClienteDAOImpl.cs" />
     <Compile Include="DAO\DAOFactory.cs" />
     <Compile Include="DAO\Producto\ProductoDAOImpl.cs" />
     <Compile Include="DAO\Producto\ProdutoDAO.cs" />

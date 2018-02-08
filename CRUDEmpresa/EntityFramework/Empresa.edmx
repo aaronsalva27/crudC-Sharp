@@ -37,7 +37,7 @@
           </Key>
           <Property Name="id_factura_detall" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="n_factura" Type="int" />
-          <Property Name="id_client" Type="int" />
+          <Property Name="id_producte" Type="int" />
           <Property Name="quantitat" Type="int" />
         </EntityType>
         <EntityType Name="productes">
@@ -48,18 +48,6 @@
           <Property Name="producte" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="preu" Type="decimal" Precision="5" Scale="2" Nullable="false" />
         </EntityType>
-        <Association Name="fk_client">
-          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
-          <End Role="factura_detall" Type="Self.factura_detall" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clients">
-              <PropertyRef Name="id_client" />
-            </Principal>
-            <Dependent Role="factura_detall">
-              <PropertyRef Name="id_client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_id_client">
           <End Role="clients" Type="Self.clients" Multiplicity="1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
@@ -84,21 +72,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_producte">
+          <End Role="productes" Type="Self.productes" Multiplicity="0..1" />
+          <End Role="factura_detall" Type="Self.factura_detall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productes">
+              <PropertyRef Name="id_produte" />
+            </Principal>
+            <Dependent Role="factura_detall">
+              <PropertyRef Name="id_producte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="dbempresaModelStoreContainer">
           <EntitySet Name="clients" EntityType="Self.clients" Schema="dbempresa" store:Type="Tables" />
           <EntitySet Name="factura" EntityType="Self.factura" Schema="dbempresa" store:Type="Tables" />
           <EntitySet Name="factura_detall" EntityType="Self.factura_detall" Schema="dbempresa" store:Type="Tables" />
           <EntitySet Name="productes" EntityType="Self.productes" Schema="dbempresa" store:Type="Tables" />
-          <AssociationSet Name="fk_client" Association="Self.fk_client">
-            <End Role="clients" EntitySet="clients" />
-            <End Role="factura_detall" EntitySet="factura_detall" />
-          </AssociationSet>
           <AssociationSet Name="fk_id_client" Association="Self.fk_id_client">
             <End Role="clients" EntitySet="clients" />
             <End Role="factura" EntitySet="factura" />
           </AssociationSet>
           <AssociationSet Name="fk_n_factura" Association="Self.fk_n_factura">
             <End Role="factura" EntitySet="factura" />
+            <End Role="factura_detall" EntitySet="factura_detall" />
+          </AssociationSet>
+          <AssociationSet Name="fk_producte" Association="Self.fk_producte">
+            <End Role="productes" EntitySet="productes" />
             <End Role="factura_detall" EntitySet="factura_detall" />
           </AssociationSet>
         </EntityContainer>
@@ -122,7 +122,6 @@
           <Property Name="telefon" Type="Int32" Nullable="false" />
           <Property Name="fax" Type="Int32" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="factura_detall" Relationship="Self.fk_client" FromRole="clients" ToRole="factura_detall" />
           <NavigationProperty Name="factura" Relationship="Self.fk_id_client" FromRole="clients" ToRole="factura" />
         </EntityType>
         <EntityType Name="factura">
@@ -143,10 +142,10 @@
           </Key>
           <Property Name="id_factura_detall" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="n_factura" Type="Int32" />
-          <Property Name="id_client" Type="Int32" />
+          <Property Name="id_producte" Type="Int32" />
           <Property Name="quantitat" Type="Int32" />
-          <NavigationProperty Name="clients" Relationship="Self.fk_client" FromRole="factura_detall" ToRole="clients" />
           <NavigationProperty Name="factura" Relationship="Self.fk_n_factura" FromRole="factura_detall" ToRole="factura" />
+          <NavigationProperty Name="productes" Relationship="Self.fk_producte" FromRole="factura_detall" ToRole="productes" />
         </EntityType>
         <EntityType Name="productes">
           <Key>
@@ -155,19 +154,8 @@
           <Property Name="id_produte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="producte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="preu" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="factura_detall" Relationship="Self.fk_producte" FromRole="productes" ToRole="factura_detall" />
         </EntityType>
-        <Association Name="fk_client">
-          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
-          <End Role="factura_detall" Type="Self.factura_detall" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clients">
-              <PropertyRef Name="id_client" />
-            </Principal>
-            <Dependent Role="factura_detall">
-              <PropertyRef Name="id_client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_id_client">
           <End Role="clients" Type="Self.clients" Multiplicity="1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
@@ -192,15 +180,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbempresaEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="fk_producte">
+          <End Role="productes" Type="Self.productes" Multiplicity="0..1" />
+          <End Role="factura_detall" Type="Self.factura_detall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productes">
+              <PropertyRef Name="id_produte" />
+            </Principal>
+            <Dependent Role="factura_detall">
+              <PropertyRef Name="id_producte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbempresaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="clients" EntityType="Self.clients" />
           <EntitySet Name="factura" EntityType="Self.factura" />
           <EntitySet Name="factura_detall" EntityType="Self.factura_detall" />
           <EntitySet Name="productes" EntityType="Self.productes" />
-          <AssociationSet Name="fk_client" Association="Self.fk_client">
-            <End Role="clients" EntitySet="clients" />
-            <End Role="factura_detall" EntitySet="factura_detall" />
-          </AssociationSet>
           <AssociationSet Name="fk_id_client" Association="Self.fk_id_client">
             <End Role="clients" EntitySet="clients" />
             <End Role="factura" EntitySet="factura" />
@@ -209,13 +205,17 @@
             <End Role="factura" EntitySet="factura" />
             <End Role="factura_detall" EntitySet="factura_detall" />
           </AssociationSet>
+          <AssociationSet Name="fk_producte" Association="Self.fk_producte">
+            <End Role="productes" EntitySet="productes" />
+            <End Role="factura_detall" EntitySet="factura_detall" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbempresaModelStoreContainer" CdmEntityContainer="dbempresaEntities">
+        <EntityContainerMapping StorageEntityContainer="dbempresaModelStoreContainer" CdmEntityContainer="dbempresaEntities1">
           <EntitySetMapping Name="clients">
             <EntityTypeMapping TypeName="dbempresaModel.clients">
               <MappingFragment StoreEntitySet="clients">
@@ -249,7 +249,7 @@
               <MappingFragment StoreEntitySet="factura_detall">
                 <ScalarProperty Name="id_factura_detall" ColumnName="id_factura_detall" />
                 <ScalarProperty Name="n_factura" ColumnName="n_factura" />
-                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="id_producte" ColumnName="id_producte" />
                 <ScalarProperty Name="quantitat" ColumnName="quantitat" />
               </MappingFragment>
             </EntityTypeMapping>

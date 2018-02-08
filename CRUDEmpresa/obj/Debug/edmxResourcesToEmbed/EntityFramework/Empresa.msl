@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="dbempresaModelStoreContainer" CdmEntityContainer="dbempresaEntities">
+  <EntityContainerMapping StorageEntityContainer="dbempresaModelStoreContainer" CdmEntityContainer="dbempresaEntities1">
     <EntitySetMapping Name="clients">
       <EntityTypeMapping TypeName="dbempresaModel.clients">
         <MappingFragment StoreEntitySet="clients">
@@ -34,7 +34,7 @@
         <MappingFragment StoreEntitySet="factura_detall">
           <ScalarProperty Name="id_factura_detall" ColumnName="id_factura_detall" />
           <ScalarProperty Name="n_factura" ColumnName="n_factura" />
-          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="id_producte" ColumnName="id_producte" />
           <ScalarProperty Name="quantitat" ColumnName="quantitat" />
         </MappingFragment>
       </EntityTypeMapping>

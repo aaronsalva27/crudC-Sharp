@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f48c173b2cd040eeb6caa7b3504f546c" Name="Diagram1">
-        <EntityTypeShape EntityType="dbempresaModel.clients" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbempresaModel.factura" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbempresaModel.factura_detall" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbempresaModel.productes" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="dbempresaModel.fk_client" ManuallyRouted="false" />
+      <Diagram DiagramId="04a70709deb04172bd3ad0f39ee24f57" Name="Diagram1">
+        <EntityTypeShape EntityType="dbempresaModel.clients" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbempresaModel.factura" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbempresaModel.factura_detall" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbempresaModel.productes" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="dbempresaModel.fk_id_client" ManuallyRouted="false" />
         <AssociationConnector Association="dbempresaModel.fk_n_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="dbempresaModel.fk_producte" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -16,10 +16,10 @@ namespace CRUDEmpresa.EntityFramework
     {
         public int id_factura_detall { get; set; }
         public Nullable<int> n_factura { get; set; }
-        public Nullable<int> id_client { get; set; }
+        public Nullable<int> id_producte { get; set; }
         public Nullable<int> quantitat { get; set; }
     
-        public virtual clients clients { get; set; }
         public virtual factura factura { get; set; }
+        public virtual productes productes { get; set; }
     }
 }

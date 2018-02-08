@@ -60,7 +60,7 @@ namespace CRUDEmpresa
         {
             this.stripStatusLabel.Text = "Clients";
             mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(new ClientControl());
+            mainPanel.Controls.Add(new ClientControl(this));
         }
 
      

@@ -17,7 +17,6 @@ namespace CRUDEmpresa.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public clients()
         {
-            this.factura_detall = new HashSet<factura_detall>();
             this.factura = new HashSet<factura>();
         }
     
@@ -33,8 +32,6 @@ namespace CRUDEmpresa.EntityFramework
         public int fax { get; set; }
         public string email { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<factura_detall> factura_detall { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> factura { get; set; }
     }

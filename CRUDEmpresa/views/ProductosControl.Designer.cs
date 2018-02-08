@@ -86,6 +86,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -110,15 +111,9 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.Size = new System.Drawing.Size(660, 367);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-=======
->>>>>>> 0a3598e30707bdaf3453b9791d29d43776f92a88
-=======
->>>>>>> 0a3598e30707bdaf3453b9791d29d43776f92a88
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             this.dataGridView1.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserAddedRow);
             // 
@@ -127,18 +122,21 @@
             this.idproduteDataGridViewTextBoxColumn.DataPropertyName = "id_produte";
             this.idproduteDataGridViewTextBoxColumn.HeaderText = "id_produte";
             this.idproduteDataGridViewTextBoxColumn.Name = "idproduteDataGridViewTextBoxColumn";
+            this.idproduteDataGridViewTextBoxColumn.Width = 102;
             // 
             // producteDataGridViewTextBoxColumn
             // 
             this.producteDataGridViewTextBoxColumn.DataPropertyName = "producte";
             this.producteDataGridViewTextBoxColumn.HeaderText = "producte";
             this.producteDataGridViewTextBoxColumn.Name = "producteDataGridViewTextBoxColumn";
+            this.producteDataGridViewTextBoxColumn.Width = 91;
             // 
             // preuDataGridViewTextBoxColumn
             // 
             this.preuDataGridViewTextBoxColumn.DataPropertyName = "preu";
             this.preuDataGridViewTextBoxColumn.HeaderText = "preu";
             this.preuDataGridViewTextBoxColumn.Name = "preuDataGridViewTextBoxColumn";
+            this.preuDataGridViewTextBoxColumn.Width = 62;
             // 
             // productesBindingSource
             // 

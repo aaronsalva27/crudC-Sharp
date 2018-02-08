@@ -1,3 +1,6 @@
 db.lock
 storage.ide
- .vs/CRUDEmpresa/v15/sqlite3/storage.ide
+.vs/CRUDEmpresa/v15/sqlite3/storage.ide
+CRUDEmpresa/bin/Debug/
+CRUDEmpresa/obj/
+.vs/CRUDEmpresa/v15/.suo

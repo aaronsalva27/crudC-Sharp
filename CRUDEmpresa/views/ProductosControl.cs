@@ -23,7 +23,9 @@ namespace CRUDEmpresa.views
         {
             this.parent = parent;
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(28, 94, 85);
+            this.Dock = DockStyle.Fill; 
         }
 
         private void ProductosControl_Load(object sender, EventArgs e)

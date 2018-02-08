@@ -14,8 +14,17 @@ namespace CRUDEmpresa.EntityFramework
     
     public partial class productes
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public productes()
+        {
+            this.factura_detall = new HashSet<factura_detall>();
+        }
+    
         public int id_produte { get; set; }
         public string producte { get; set; }
         public decimal preu { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<factura_detall> factura_detall { get; set; }
     }
 }

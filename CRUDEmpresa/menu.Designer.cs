@@ -203,7 +203,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(44, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 42);
+            this.label2.Size = new System.Drawing.Size(100, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "Savami";
             // 
@@ -259,6 +259,7 @@
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "menu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

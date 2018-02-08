@@ -1,4 +1,5 @@
-﻿using CRUDEmpresa.DAO.Producto;
+﻿using CRUDEmpresa.DAO.Cliente;
+using CRUDEmpresa.DAO.Producto;
 using CRUDEmpresa.DAO.Usuario;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,8 @@ namespace CRUDEmpresa.DAO
          */
         private UsuarioDAO EmplatBean = null;
         private ProdutoDAO ProducteBean = null;
-        
+        private ClienteDAO ClientBean = null;
+
 
         /**
          * Construtor de la clase DAOInstitucio
@@ -58,6 +60,15 @@ namespace CRUDEmpresa.DAO
                 ProducteBean = new ProductoDAOImpl();
             }
             return ProducteBean;
+        }
+
+        public ClienteDAO getClienteDAO()
+        {
+            if (this.ClientBean == null)
+            {
+                ClientBean = new ClienteDAOImpl();
+            }
+            return ClientBean;
         }
 
     }

@@ -44,7 +44,6 @@
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -78,8 +77,7 @@
             this.provinciaDataGridViewTextBoxColumn,
             this.telefonDataGridViewTextBoxColumn,
             this.faxDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.facturaDataGridViewTextBoxColumn});
+            this.emailDataGridViewTextBoxColumn});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.DataSource = this.clientsBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -176,13 +174,6 @@
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.Width = 82;
             // 
-            // facturaDataGridViewTextBoxColumn
-            // 
-            this.facturaDataGridViewTextBoxColumn.DataPropertyName = "factura";
-            this.facturaDataGridViewTextBoxColumn.HeaderText = "factura";
-            this.facturaDataGridViewTextBoxColumn.Name = "facturaDataGridViewTextBoxColumn";
-            this.facturaDataGridViewTextBoxColumn.Width = 92;
-            // 
             // ClientControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -215,6 +206,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn facturaDataGridViewTextBoxColumn;
     }
 }

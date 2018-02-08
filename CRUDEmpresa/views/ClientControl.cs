@@ -17,6 +17,7 @@ namespace CRUDEmpresa.views
         private dbempresaEntities context;
         private Boolean newrow;
         private menu parent;
+        private int deleteColumn; 
 
         public ClientControl(menu parent)
         {
@@ -50,6 +51,7 @@ namespace CRUDEmpresa.views
             delbut.Width = 100;
             delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns.Add(delbut);
+            deleteColumn = dataGridView1.ColumnCount - 1;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,7 +69,7 @@ namespace CRUDEmpresa.views
             }
 
 
-            if (e.ColumnIndex == 13 && e.RowIndex >= 0 && newrow != true) //delete icon button is clicked
+            if (e.ColumnIndex == deleteColumn && e.RowIndex >= 0 && newrow != true) //delete icon button is clicked
             {
                 int bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 DialogResult result = MessageBox.Show("Quieres eliminar este registro?", "Confirmación", MessageBoxButtons.OKCancel);
@@ -80,7 +82,7 @@ namespace CRUDEmpresa.views
                 }
 
             }
-            else if (e.ColumnIndex == 13 && newrow) //save icon button is clicked
+            else if (e.ColumnIndex == deleteColumn && newrow) //save icon button is clicked
             {
                 try
                 {
@@ -114,7 +116,7 @@ namespace CRUDEmpresa.views
                         };
                         new DAOFactory().getClienteDAO().CrearCliente(clt);
                         newrow = false;
-                        dataGridView1.Rows[e.RowIndex].Cells[13].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+                        dataGridView1.Rows[e.RowIndex].Cells[deleteColumn].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
                         // dataGridView1.EndEdit();
                         // dataGridView1.Refresh();
                         dataGridView1.EndEdit();
@@ -133,7 +135,7 @@ namespace CRUDEmpresa.views
         {
             this.parent.sendMessage("add row  " + dataGridView1.NewRowIndex);
             newrow = true;
-            dataGridView1.Rows[dataGridView1.NewRowIndex - 1].Cells[13].Value = Image.FromFile(Environment.CurrentDirectory + "/images/save.png").GetThumbnailImage(15, 15, null, IntPtr.Zero);
+            dataGridView1.Rows[dataGridView1.NewRowIndex - 1].Cells[deleteColumn].Value = Image.FromFile(Environment.CurrentDirectory + "/images/save.png").GetThumbnailImage(15, 15, null, IntPtr.Zero);
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)

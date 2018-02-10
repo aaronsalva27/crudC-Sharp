@@ -36,3 +36,4 @@ C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRU
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.csproj.CoreCompileInputs.cache
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.exe
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.pdb
+C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.XmlController.resources

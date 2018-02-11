@@ -32,28 +32,29 @@ namespace CRUDEmpresa.views
             InitializeComponent();
             this.Dock = DockStyle.Fill;
 
-            
+
             // add the clients 
-            foreach(clients c in clientes)
+            foreach (clients c in clientes)
             {
-                comboBox.Items.Add(c.id_client+"-"+c.nom);
+                comboBox.Items.Add(c.id_client + "-" + c.nom);
             }
+            
             dataGridView1.Controls.Add(comboBox);
             comboBox.Visible = false;
             comboBox.TextChanged += ComboBox_TextChanged;
-            
+
 
             dataGridView1.Controls.Add(dtp);
             dtp.Visible = false;
             dtp.CustomFormat = "dd/MM/yyyy HH:mm";
-            
+
             dtp.Format = DateTimePickerFormat.Custom;
             dtp.TextChanged += new EventHandler(dtp_TextChange);
         }
 
         private void ComboBox_TextChanged(object sender, EventArgs e)
         {
-            
+
             parent.sendMessage(comboBox.SelectedItem.ToString().Split()[0]);
             dataGridView1.CurrentCell.Value = comboBox.SelectedItem.ToString().Split('-')[0];
             comboBox.Hide();
@@ -102,7 +103,7 @@ namespace CRUDEmpresa.views
             }
 
             if (e.ColumnIndex == 2 && e.RowIndex >= 0)
-            {                
+            {
                 parent.sendMessage("entra picker");
                 _Rectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true); //  
                 dtp.Size = new Size(_Rectangle.Width, _Rectangle.Height); //  
@@ -139,7 +140,7 @@ namespace CRUDEmpresa.views
                     int id_client = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                     DateTime data = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
                     int descompte = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()); ;
-                    int iva = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()); ; 
+                    int iva = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()); ;
 
                     DialogResult result = MessageBox.Show("Guardando siguiente registro:\n", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
@@ -183,7 +184,7 @@ namespace CRUDEmpresa.views
             dtp.Visible = false;
             comboBox.Hide();
         }
-        
+
         private void dataGridView1_Scroll(object sender, ScrollEventArgs e)
         {
             dtp.Visible = false;
@@ -211,7 +212,7 @@ namespace CRUDEmpresa.views
             }
             if (anError.Context == DataGridViewDataErrorContexts.Parsing)
             {
-                MessageBox.Show("Parsing error"+anError.Exception.Message.ToString());
+                MessageBox.Show("Parsing error" + anError.Exception.Message.ToString());
             }
             if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
             {

@@ -21,7 +21,7 @@ namespace CRUDEmpresa.views
         private int deleteColumn;
 
         private List<productes> productes = new DAOFactory().getProductoDAO().LeerProdutos();
-        private List<factura> facturas = new DAOFactory().getFacturaDAO().LeerFactura();
+        private List<factura> facturas = new DAOFactory().getFacturaDAO().LeerFacturas();
 
         private ComboBox comboBoxProductes = new ComboBox();
         private ComboBox comboBoxFacturas = new ComboBox();
@@ -130,14 +130,14 @@ namespace CRUDEmpresa.views
             }
 
 
-                if (e.ColumnIndex == deleteColumn && e.RowIndex >= 0 && newrow != true) //delete icon button is clicked
+            if (e.ColumnIndex == deleteColumn && e.RowIndex >= 0 && newrow != true) //delete icon button is clicked
             {
                 int bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 DialogResult result = MessageBox.Show("Quieres eliminar este registro?", "Confirmación", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     //deleteProdute(bid); //delete the record from the producte table
-                    new DAOFactory().getDetallDAO().BorrarDetall(bid);
+                    new DAOFactory().getFacturaDetallDAO().BorrarFacturaDetall(bid);
 
                     dataGridView1.Rows.RemoveAt(e.RowIndex); //delete the row from the DataGridView
                 }
@@ -161,7 +161,7 @@ namespace CRUDEmpresa.views
                             id_producte = id_producte,
                             quantitat = quantitat
                         };
-                        new DAOFactory().getDetallDAO().CrearDetall(fac);
+                        new DAOFactory().getFacturaDetallDAO().CrearFacturaDetall(fac);
                         newrow = false;
                         dataGridView1.Rows[e.RowIndex].Cells[deleteColumn].Value = Image.FromFile(Environment.CurrentDirectory + "/images/del.jpg").GetThumbnailImage(15, 15, null, IntPtr.Zero);
                         // dataGridView1.EndEdit();

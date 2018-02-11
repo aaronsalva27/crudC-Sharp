@@ -32,13 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nfacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descompteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturadetallDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
@@ -54,7 +54,7 @@
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MediumTurquoise;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -63,22 +63,24 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nfacturaDataGridViewTextBoxColumn,
-            this.idclientDataGridViewTextBoxColumn,
-            this.dataDataGridViewTextBoxColumn,
-            this.descompteDataGridViewTextBoxColumn,
-            this.ivaDataGridViewTextBoxColumn,
-            this.clientsDataGridViewTextBoxColumn,
-            this.facturadetallDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.DataSource = this.facturaBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(956, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(936, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
@@ -87,47 +89,47 @@
             this.dataGridView1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dataGridView1_Scroll);
             this.dataGridView1.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserAddedRow);
             // 
-            // nfacturaDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.nfacturaDataGridViewTextBoxColumn.DataPropertyName = "n_factura";
-            this.nfacturaDataGridViewTextBoxColumn.HeaderText = "n_factura";
-            this.nfacturaDataGridViewTextBoxColumn.Name = "nfacturaDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "n_factura";
+            this.dataGridViewTextBoxColumn1.HeaderText = "n_factura";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // idclientDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.idclientDataGridViewTextBoxColumn.DataPropertyName = "id_client";
-            this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
-            this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_client";
+            this.dataGridViewTextBoxColumn2.HeaderText = "id_client";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "data";
+            this.dataGridViewTextBoxColumn3.HeaderText = "data";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // descompteDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.descompteDataGridViewTextBoxColumn.DataPropertyName = "descompte";
-            this.descompteDataGridViewTextBoxColumn.HeaderText = "descompte";
-            this.descompteDataGridViewTextBoxColumn.Name = "descompteDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "descompte";
+            this.dataGridViewTextBoxColumn4.HeaderText = "descompte";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // ivaDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn5
             // 
-            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "iva";
-            this.ivaDataGridViewTextBoxColumn.HeaderText = "iva";
-            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "iva";
+            this.dataGridViewTextBoxColumn5.HeaderText = "iva";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // clientsDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn6
             // 
-            this.clientsDataGridViewTextBoxColumn.DataPropertyName = "clients";
-            this.clientsDataGridViewTextBoxColumn.HeaderText = "clients";
-            this.clientsDataGridViewTextBoxColumn.Name = "clientsDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "clients";
+            this.dataGridViewTextBoxColumn6.HeaderText = "clients";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // facturadetallDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn7
             // 
-            this.facturadetallDataGridViewTextBoxColumn.DataPropertyName = "factura_detall";
-            this.facturadetallDataGridViewTextBoxColumn.HeaderText = "factura_detall";
-            this.facturadetallDataGridViewTextBoxColumn.Name = "facturadetallDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "factura_detall";
+            this.dataGridViewTextBoxColumn7.HeaderText = "factura_detall";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // facturaBindingSource
             // 
@@ -140,7 +142,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dataGridView1);
             this.Name = "FacturaControl";
-            this.Size = new System.Drawing.Size(956, 487);
+            this.Size = new System.Drawing.Size(936, 419);
             this.Load += new System.EventHandler(this.FacturaControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();
@@ -158,6 +160,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ivaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn facturadetallDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.BindingSource facturaBindingSource;
     }
 }

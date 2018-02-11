@@ -9,11 +9,11 @@ namespace CRUDEmpresa.DAO.Factura
 {
     interface FacturaDAO
     {
-        void CrearFactura(factura f);
+        void CrearFactura(factura c);
 
         void BorrarFactura(int id);
 
-        List<factura> LeerFactura();
+        List<factura> LeerFacturas();
 
         factura LeerFactura(int id);
     }

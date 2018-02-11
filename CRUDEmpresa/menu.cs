@@ -28,7 +28,6 @@ namespace CRUDEmpresa
             Application.Exit();
         }
 
-       
 
         private void FlowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
         {
@@ -47,6 +46,10 @@ namespace CRUDEmpresa
             bi.DataSource = context.clients.ToList();
             dataGridView1.DataSource = bi;
             dataGridView1.Refresh();*/
+
+            pictureBox1.Image = Image.FromFile(Environment.CurrentDirectory + "/images/mysql.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
+            pictureBox2.Image = Image.FromFile(Environment.CurrentDirectory + "/images/entity_image.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
+
         }
 
         private void btnProductes_Click(object sender, EventArgs e)
@@ -74,16 +77,33 @@ namespace CRUDEmpresa
             this.stripStatusLabel.Text = message;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.DefaultExt = "xml";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(openFileDialog1.FileName, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mainPanel.Controls.Clear();
+                mainPanel.Controls.Add( new XmlController(openFileDialog1.FileName)); // le pasamos la ruta del archivo
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           // mainPanel.Controls.Add(new XmlController(openFileDialog1.FileName)); // le pasamos la ruta del archivo
+        }
+
         private void btnFacturas_Click(object sender, EventArgs e)
         {
-            this.stripStatusLabel.Text = "Facturas";
+            this.stripStatusLabel.Text = "Factura";
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(new FacturaControl(this));
         }
 
         private void btnDetalls_Click(object sender, EventArgs e)
         {
-            this.stripStatusLabel.Text = "Detall factura";
+            this.stripStatusLabel.Text = "Detall";
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(new DetallControl(this));
         }

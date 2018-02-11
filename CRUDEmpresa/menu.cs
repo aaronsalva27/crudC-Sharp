@@ -73,5 +73,19 @@ namespace CRUDEmpresa
         {
             this.stripStatusLabel.Text = message;
         }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            this.stripStatusLabel.Text = "Facturas";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new FacturaControl(this));
+        }
+
+        private void btnDetalls_Click(object sender, EventArgs e)
+        {
+            this.stripStatusLabel.Text = "Detall factura";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new DetallControl(this));
+        }
     }
 }

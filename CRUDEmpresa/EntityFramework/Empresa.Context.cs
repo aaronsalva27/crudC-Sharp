@@ -25,10 +25,10 @@ namespace CRUDEmpresa.EntityFramework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<clients> clients { get; set; }
         public virtual DbSet<factura> factura { get; set; }
         public virtual DbSet<factura_detall> factura_detall { get; set; }
         public virtual DbSet<productes> productes { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
     }
 }

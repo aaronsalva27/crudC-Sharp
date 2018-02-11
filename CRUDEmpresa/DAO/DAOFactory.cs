@@ -1,4 +1,6 @@
 ﻿using CRUDEmpresa.DAO.Cliente;
+using CRUDEmpresa.DAO.Detall;
+using CRUDEmpresa.DAO.Factura;
 using CRUDEmpresa.DAO.Producto;
 using CRUDEmpresa.DAO.Usuario;
 using System;
@@ -25,7 +27,8 @@ namespace CRUDEmpresa.DAO
         private UsuarioDAO EmplatBean = null;
         private ProdutoDAO ProducteBean = null;
         private ClienteDAO ClientBean = null;
-
+        private FacturaDAO FacturaBean = null;
+        private DetallDAO DetallBean = null;
 
         /**
          * Construtor de la clase DAOInstitucio
@@ -69,6 +72,24 @@ namespace CRUDEmpresa.DAO
                 ClientBean = new ClienteDAOImpl();
             }
             return ClientBean;
+        }
+
+        public FacturaDAO getFacturaDAO()
+        {
+            if (this.FacturaBean == null)
+            {
+                FacturaBean = new FacturaDAOImpl();
+            }
+            return FacturaBean;
+        }
+
+        public DetallDAO getDetallDAO()
+        {
+            if (this.DetallBean == null)
+            {
+                DetallBean = new DetallDAOImpl();
+            }
+            return DetallBean;
         }
 
     }

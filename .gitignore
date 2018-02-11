@@ -4,3 +4,5 @@ storage.ide
 CRUDEmpresa/bin/Debug/
 CRUDEmpresa/obj/
 .vs/CRUDEmpresa/v15/.suo
+.vs/CRUDEmpresa/v15/Server/sqlite3/storage.ide-wal
+.vs/CRUDEmpresa/v15/sqlite3/storage.ide-wal

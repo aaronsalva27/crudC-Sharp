@@ -104,6 +104,7 @@
             this.btnDetalls.TabIndex = 0;
             this.btnDetalls.Text = "Detalls";
             this.btnDetalls.UseVisualStyleBackColor = true;
+            this.btnDetalls.Click += new System.EventHandler(this.btnDetalls_Click);
             // 
             // btnFacturas
             // 
@@ -118,6 +119,7 @@
             this.btnFacturas.TabIndex = 0;
             this.btnFacturas.Text = "Facturas";
             this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
             // btnClients
             // 

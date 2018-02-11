@@ -148,89 +148,97 @@ namespace CRUDEmpresa.Utils
             }
         }
         public void addData()
-            //add list to context
-            //problem the id autoincremental... T_T
+        //add list to context
+        //problem the id autoincremental... T_T
         {
-            foreach ( clients c in clientList)
-            {
-                try
-                {
-                    new DAOFactory().getClienteDAO().CrearCliente(c);
-                    //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
-                    //clients client = this.context.clients.First(i => i.email == c.email && i.telefon == c.telefon);
-                    int max = this.context.clients.Max(p => p.id_client);
-                    clients client = this.context.clients.First(i => i.id_client == max);
-                    client.id_client = c.id_client;
-                    this.context.SaveChanges();
-                }
-                catch (Exception e)
-                {
+            this.context = new dbempresaEntities();
 
+
+            foreach (clients c in clientList)
+            {
+                int realId = c.id_client;
+                new DAOFactory().getClienteDAO().CrearCliente(c);
+                //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
+                //clients client = this.context.clients.First(i => i.email == c.email && i.telefon == c.telefon);
+                //clients client = this.context.clients.First(i => i.id_client == max);
+                //client.id_client = c.id_client;
+                this.context.SaveChanges();
+                Debug.WriteLine(" Client ID is " + c.id_client);
+                // modify all the fk
+                foreach (factura f in facturaList)
+                {
+                    if (f.id_client == realId) f.id_client = c.id_client;
                 }
+
+
             }
             foreach (productes pt in producteList)
             {
-                try
-                {
-                    new DAOFactory().getProductoDAO().CrearProducto(pt);
-                    this.context.SaveChanges();
+                var realId = pt.id_produte;
+                new DAOFactory().getProductoDAO().CrearProducto(pt);
+                this.context.SaveChanges();
+                
+                //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
+                //productes prod = this.context.productes.First(i => i.producte == p.producte && i.preu == p.preu);
+                //productes prod = this.context.productes.Last<productes>();
+                //int max2 = this.context.productes.Max(p => p.id_produte);
+                //Debug.WriteLine("idmax productes: " + max2);
 
-                    //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
-                    //productes prod = this.context.productes.First(i => i.producte == p.producte && i.preu == p.preu);
-                    //productes prod = this.context.productes.Last<productes>();
-                    int max = this.context.productes.Max(p => p.id_produte);
-                    productes prod = this.context.productes.First(i => i.id_produte == max);
-                    prod.id_produte = pt.id_produte;
-                    this.context.SaveChanges();
-                }
-                catch (Exception e)
+                //productes prod = this.context.productes.First(i => i.id_produte == max2);
+                //prod.id_produte = pt.id_produte;
+                this.context.SaveChanges();
+                Debug.WriteLine("id productes: " + pt.id_produte+ " "+realId);
+                // modify all the fk
+                foreach (factura_detall fd in factura_detallList)
                 {
+                    Debug.WriteLine("real:  " + realId);
+
+                    if (fd.id_producte == realId) fd.id_producte = pt.id_produte;
+                    Debug.WriteLine("id productes de factura detall: " + fd.id_producte);
 
                 }
+
             }
 
             foreach (factura f in facturaList)
             {
-                try
-                {
-                    new DAOFactory().getFacturaDAO().CrearFactura(f);
-                    this.context.SaveChanges();
-                    //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
-                    //factura fact = this.context.factura.First(i => i.id_client == f.id_client && i.data == f.data 
-                    //&& i.descompte == f.descompte && i.iva == f.iva);
-                    //factura fact = this.context.factura.Last<factura>();
-                    int max = this.context.factura.Max(p => p.n_factura);
-                    factura fact = this.context.factura.First(i => i.n_factura == max);
+                int realnFactura = f.n_factura; 
+                new DAOFactory().getFacturaDAO().CrearFactura(f);
+                this.context.SaveChanges();
+                //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
+                //factura fact = this.context.factura.First(i => i.id_client == f.id_client && i.data == f.data 
+                //&& i.descompte == f.descompte && i.iva == f.iva);
+                //factura fact = this.context.factura.Last<factura>();
+                //int max = this.context.factura.Max(p => p.n_factura);
 
-                    fact.n_factura = f.n_factura;
-                    this.context.SaveChanges();
-                }
-                catch (Exception e)
-                {
+                //factura fact = this.context.factura.First(i => i.n_factura == max);
 
+                //fact.n_factura = f.n_factura;
+                // modify all the fk
+                foreach (factura_detall fd in factura_detallList)
+                {
+                    Debug.WriteLine("id nfactura: " + f.n_factura + " real  " + realnFactura +"fd"+ fd.n_factura);
+
+                    if (fd.n_factura == realnFactura) fd.n_factura = f.n_factura;
                 }
+
             }
             foreach (factura_detall fd in factura_detallList)
             {
-                try
-                {
-                    new DAOFactory().getFacturaDetallDAO().CrearFacturaDetall(fd);
-                    this.context.SaveChanges();
 
-                    //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
-                    //factura_detall factd = this.context.factura_detall.First(i => i.n_factura == fd.n_factura);
-                    //factura_detall factd = this.context.factura_detall.Last<factura_detall>();
-                    int max = this.context.factura_detall.Max(p => p.id_factura_detall);
-                    factura_detall factd = this.context.factura_detall.First(i => i.id_factura_detall == max);
+                new DAOFactory().getFacturaDetallDAO().CrearFacturaDetall(fd);
+                this.context.SaveChanges();
 
-                    factd.id_factura_detall = fd.id_factura_detall;
-                    this.context.SaveChanges();
-                }
-                catch (Exception e)
-                {
+                //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
+                //factura_detall factd = this.context.factura_detall.First(i => i.n_factura == fd.n_factura);
+                //factura_detall factd = this.context.factura_detall.Last<factura_detall>();
+                //int max = this.context.factura_detall.Max(p => p.id_factura_detall);
+                //factura_detall factd = this.context.factura_detall.First(i => i.id_factura_detall == max);
 
-                }
+                //factd.id_factura_detall = fd.id_factura_detall;
+
             }
+
         }
 
         public void isGroupInCollection(string bandName)

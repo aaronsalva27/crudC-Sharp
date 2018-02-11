@@ -1,7 +1,7 @@
 <empresa>
     <clients>
         <client>
-            <id_client>130</id_client>
+            <id_client>1000</id_client>
             <nom>David</nom>
             <cognom1>Ramírez</cognom1>
             <cognom2>Campoy</cognom2>
@@ -13,29 +13,109 @@
             <fax>686868686</fax>
             <email>a@aaa.a</email>
         </client>
+        <client>
+            <id_client>1010</id_client>
+            <nom>Aaron</nom>
+            <cognom1>Salvador</cognom1>
+            <cognom2>Marcos</cognom2>
+            <adreça>Santako</adreça>
+            <codi_postal>080123</codi_postal>
+            <poblacio>Santako</poblacio>
+            <provincia>Barcelona</provincia>
+            <telefon>612312323</telefon>
+            <fax>612312323</fax>
+            <email>abc@abc.a</email>
+        </client>
+        <client>
+            <id_client>1020</id_client>
+            <nom>Elvis</nom>
+            <cognom1>Canario</cognom1>
+            <cognom2>Farray</cognom2>
+            <adreça>Malasaña</adreça>
+            <codi_postal>90909</codi_postal>
+            <poblacio>Madriz</poblacio>
+            <provincia>Madril</provincia>
+            <telefon>623432234</telefon>
+            <fax>623432234</fax>
+            <email>bbc@bbc.a</email>
+        </client>
     </clients>
     <factures>
          <factura>
-            <n_factura>112</n_factura>
-            <id_client>130</id_client>
+            <n_factura>2000</n_factura>
+            <id_client>1000</id_client>
             <data>2017-12-05 00:10:00</data>
             <descompte>15</descompte>
+            <iva>21</iva>
+         </factura>
+         <factura>
+            <n_factura>2100</n_factura>
+            <id_client>1000</id_client>
+            <data>2017-12-26 00:10:00</data>
+            <descompte>20</descompte>
+            <iva>21</iva>
+         </factura>
+         <factura>
+            <n_factura>2200</n_factura>
+            <id_client>1010</id_client>
+            <data>2017-12-28 00:10:00</data>
+            <descompte>9</descompte>
+            <iva>21</iva>
+         </factura>
+         <factura>
+            <n_factura>2300</n_factura>
+            <id_client>1020</id_client>
+            <data>2017-12-29 00:10:00</data>
+            <descompte>10</descompte>
             <iva>21</iva>
          </factura>
     </factures>
     <factures_detall>
          <factura_detall>
-            <id_factura_detall>22</id_factura_detall>
-            <n_factura>11</n_factura>
-            <id_produte>111</id_produte>
-            <quantitat>51</quantitat>
+            <id_factura_detall>1500</id_factura_detall>
+            <n_factura>2000</n_factura>
+            <id_produte>1000</id_produte>
+            <quantitat>10</quantitat>
+         </factura_detall>
+         <factura_detall>
+            <id_factura_detall>1600</id_factura_detall>
+            <n_factura>2100</n_factura>
+            <id_produte>2000</id_produte>
+            <quantitat>11</quantitat>
+         </factura_detall>
+         <factura_detall>
+            <id_factura_detall>1700</id_factura_detall>
+            <n_factura>2200</n_factura>
+            <id_produte>3000</id_produte>
+            <quantitat>15</quantitat>
+         </factura_detall>
+         <factura_detall>
+            <id_factura_detall>1800</id_factura_detall>
+            <n_factura>2300</n_factura>
+            <id_produte>4000</id_produte>
+            <quantitat>1</quantitat>
          </factura_detall>
     </factures_detall>
     <productes>
          <producte>
-            <id_produte>11</id_produte>
+            <id_produte>1000</id_produte>
             <producte>Lasers</producte>
             <preu>191</preu>
+         </producte>
+         <producte>
+            <id_produte>2000</id_produte>
+            <producte>Pistolas</producte>
+            <preu>19</preu>
+         </producte>
+         <producte>
+            <id_produte>3000</id_produte>
+            <producte>Peluca</producte>
+            <preu>50</preu>
+         </producte>
+         <producte>
+            <id_produte>4000</id_produte>
+            <producte>Disfraz</producte>
+            <preu>30</preu>
          </producte>
     </productes>
 </empresa>

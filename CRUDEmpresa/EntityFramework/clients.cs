@@ -11,7 +11,9 @@ namespace CRUDEmpresa.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class clients
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +21,7 @@ namespace CRUDEmpresa.EntityFramework
         {
             this.factura = new HashSet<factura>();
         }
-    
+
         public int id_client { get; set; }
         public string nom { get; set; }
         public string cognom1 { get; set; }

@@ -88,5 +88,10 @@ namespace CRUDEmpresa
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           // mainPanel.Controls.Add(new XmlController(openFileDialog1.FileName)); // le pasamos la ruta del archivo
+        }
     }
 }

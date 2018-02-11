@@ -26,6 +26,7 @@ namespace CRUDEmpresa
         {
            this.context = new dbempresaEntities();
            this.admin =  this.context.admin.FirstOrDefault();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,6 +53,12 @@ namespace CRUDEmpresa
             textBox2.ForeColor = Color.Black;
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            menu m = new menu();
+            // m.MdiParent = this;
+            m.Show();
+            this.Hide();
+        }
     }
 }

@@ -29,21 +29,45 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(352, 155);
+            this.label1.Location = new System.Drawing.Point(3, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "...";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "cargando datos...";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBar1.Location = new System.Drawing.Point(0, 0);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(754, 10);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 1;
+            this.progressBar1.UseWaitCursor = true;
+            // 
             // XmlController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "XmlController";
             this.Size = new System.Drawing.Size(754, 381);
@@ -56,5 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

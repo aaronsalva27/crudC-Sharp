@@ -73,3 +73,4 @@ C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\
 >>>>>>> a78fb689394e8e3055060b0ba443174d4f5520b6
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\bin\Debug\itextsharp.dll
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\bin\Debug\itextsharp.xml
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.XMLExporter.resources

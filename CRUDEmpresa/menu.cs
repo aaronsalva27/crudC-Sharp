@@ -93,5 +93,19 @@ namespace CRUDEmpresa
         {
            mainPanel.Controls.Add(new XMLExporter());
         }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            this.stripStatusLabel.Text = "Factura";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new FacturaControl(this));
+        }
+
+        private void btnDetalls_Click(object sender, EventArgs e)
+        {
+            this.stripStatusLabel.Text = "Detall";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new DetallControl(this));
+        }
     }
 }

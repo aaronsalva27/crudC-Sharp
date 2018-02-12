@@ -46,6 +46,8 @@
       <HintPath>..\packages\MySql.Data.Entity.6.8.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -59,6 +61,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +71,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\Factura detall\FacturaDetallDAO.cs" />
@@ -134,6 +138,18 @@
     <Compile Include="views\ClientControl.Designer.cs">
       <DependentUpon>ClientControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\DetallControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\DetallControl.Designer.cs">
+      <DependentUpon>DetallControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\FacturaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\FacturaControl.Designer.cs">
+      <DependentUpon>FacturaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\ProductosControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +185,12 @@
     </Compile>
     <EmbeddedResource Include="views\ClientControl.resx">
       <DependentUpon>ClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\DetallControl.resx">
+      <DependentUpon>DetallControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\FacturaControl.resx">
+      <DependentUpon>FacturaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\ProductosControl.resx">
       <DependentUpon>ProductosControl.cs</DependentUpon>
@@ -763,7 +785,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

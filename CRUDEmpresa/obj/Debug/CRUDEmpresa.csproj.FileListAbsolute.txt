@@ -37,4 +37,34 @@ C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRU
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.exe
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.pdb
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.XmlController.resources
+<<<<<<< HEAD
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.XMLExporter.resources
+=======
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\CRUDEmpresa.exe.config
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\CRUDEmpresa.exe
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\CRUDEmpresa.pdb
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\EntityFramework.dll
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\MySql.Data.dll
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\EntityFramework.xml
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.login.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.menu.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.Properties.Resources.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.ClientControl.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.ProductosControl.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.XmlController.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.csproj.GenerateResource.Cache
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.csproj.CoreCompileInputs.cache
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.exe
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.pdb
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.DetallControl.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.FacturaControl.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\obj\Debug\CRUDEmpresa.csprojResolveAssemblyReference.cache
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.DetallControl.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.FacturaControl.resources
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.XmlController.resources
+>>>>>>> 103b4284462aab3cb609db3df4a1125e21313605
+C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.DetallControl.resources
+C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.FacturaControl.resources

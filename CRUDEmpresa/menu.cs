@@ -77,6 +77,7 @@ namespace CRUDEmpresa
             this.stripStatusLabel.Text = message;
         }
 
+        //import
         private void button2_Click(object sender, EventArgs e)
         {
             openFileDialog1.DefaultExt = "xml";
@@ -89,9 +90,12 @@ namespace CRUDEmpresa
 
         }
 
+        //Export XML
         private void button3_Click(object sender, EventArgs e)
         {
-           mainPanel.Controls.Add(new XMLExporter());
+            this.stripStatusLabel.Text = "Export";
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(new XMLExporter());
         }
 
         private void btnFacturas_Click(object sender, EventArgs e)
@@ -107,5 +111,12 @@ namespace CRUDEmpresa
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(new DetallControl(this));
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

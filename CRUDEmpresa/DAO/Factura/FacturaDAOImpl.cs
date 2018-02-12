@@ -16,8 +16,10 @@ namespace CRUDEmpresa.DAO.Factura
             {
                 try
                 {
-                    factura fact = context.factura.First(i => i.n_factura == id);
-                    context.factura.Remove(fact);
+
+                    factura fac = context.factura.First(i => i.n_factura == id);
+                    context.factura.Remove(fac);
+
                     context.SaveChanges();
                 }
                 catch (Exception ex)
@@ -36,7 +38,10 @@ namespace CRUDEmpresa.DAO.Factura
             }
         }
 
+
+
         public List<factura> LeerFacturas()
+
         {
             using (var context = new dbempresaEntities())
             {

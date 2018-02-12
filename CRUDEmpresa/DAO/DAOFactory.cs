@@ -1,4 +1,5 @@
 ﻿using CRUDEmpresa.DAO.Cliente;
+using CRUDEmpresa.DAO.Factura;
 using CRUDEmpresa.DAO.Producto;
 using CRUDEmpresa.DAO.Usuario;
 using CRUDEmpresa.DAO.Factura;
@@ -90,6 +91,6 @@ namespace CRUDEmpresa.DAO
             }
             return FacturaDetallBean;
         }
-
+        
     }
 }

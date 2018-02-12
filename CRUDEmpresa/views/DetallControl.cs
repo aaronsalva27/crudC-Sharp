@@ -90,7 +90,9 @@ namespace CRUDEmpresa.views
         private void ComboBoxFacturas_TextChanged(object sender, EventArgs e)
         {
             parent.sendMessage(comboBoxFacturas.SelectedItem.ToString().Split()[0]);
+            dataGridView1.BeginEdit(true);
             dataGridView1.CurrentCell.Value = comboBoxFacturas.SelectedItem.ToString().Split()[0];
+            dataGridView1.EndEdit();
             comboBoxFacturas.Hide();
         }
         /// <summary>
@@ -102,7 +104,9 @@ namespace CRUDEmpresa.views
         private void ComboBoxProductes_TextChanged(object sender, EventArgs e)
         {
             parent.sendMessage(comboBoxProductes.SelectedItem.ToString().Split()[0]);
+            dataGridView1.BeginEdit(true);
             dataGridView1.CurrentCell.Value = comboBoxProductes.SelectedItem.ToString().Split('-')[0];
+            dataGridView1.EndEdit();
             comboBoxProductes.Hide();
         }
 
@@ -324,7 +328,7 @@ namespace CRUDEmpresa.views
                 progressBar1.Visible = true;
                 progressBar1.Style = ProgressBarStyle.Marquee;
                 MessageBox.Show(folderBrowserDialog1.SelectedPath, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                pdfUtility = new Utils.UtilityPDF(folderBrowserDialog1.SelectedPath + @"\" + DateTime.Now.ToString("yyyyMMddHHmmss")+ ".pdf");
+                pdfUtility = new Utils.UtilityPDF(folderBrowserDialog1.SelectedPath + @"\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf");
                 // simply start and await the loading task
                 var result = false;
                 result = await Task.Run(() => this.pdfUtility.generatePDF());

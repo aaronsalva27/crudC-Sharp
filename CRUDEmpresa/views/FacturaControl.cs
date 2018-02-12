@@ -87,7 +87,9 @@ namespace CRUDEmpresa.views
         private void ComboBox_TextChanged(object sender, EventArgs e)
         {
             parent.sendMessage(comboBox.SelectedItem.ToString().Split()[0]);
+            dataGridView1.BeginEdit(true);
             dataGridView1.CurrentCell.Value = comboBox.SelectedItem.ToString().Split('-')[0];
+            dataGridView1.EndEdit();
             comboBox.Hide();
         }
 
@@ -220,7 +222,9 @@ namespace CRUDEmpresa.views
         {
             DateTime? date = new DateTime(dtp.Value.Ticks);
             parent.sendMessage(dtp.Text.ToString());
+            dataGridView1.BeginEdit(true);
             dataGridView1.CurrentCell.Value = date.Value.ToString();
+            dataGridView1.EndEdit();
             dtp.Hide();
         }
 

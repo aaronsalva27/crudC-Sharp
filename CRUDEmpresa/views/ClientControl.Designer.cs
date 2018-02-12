@@ -81,13 +81,12 @@
             this.emailDataGridViewTextBoxColumn});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.DataSource = this.clientsBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(769, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(577, 323);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
@@ -99,77 +98,77 @@
             this.idclientDataGridViewTextBoxColumn.DataPropertyName = "id_client";
             this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
             this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
-            this.idclientDataGridViewTextBoxColumn.Width = 106;
+            this.idclientDataGridViewTextBoxColumn.Width = 84;
             // 
             // nomDataGridViewTextBoxColumn
             // 
             this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
             this.nomDataGridViewTextBoxColumn.HeaderText = "nom";
             this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
-            this.nomDataGridViewTextBoxColumn.Width = 75;
+            this.nomDataGridViewTextBoxColumn.Width = 61;
             // 
             // cognom1DataGridViewTextBoxColumn
             // 
             this.cognom1DataGridViewTextBoxColumn.DataPropertyName = "cognom1";
             this.cognom1DataGridViewTextBoxColumn.HeaderText = "cognom1";
             this.cognom1DataGridViewTextBoxColumn.Name = "cognom1DataGridViewTextBoxColumn";
-            this.cognom1DataGridViewTextBoxColumn.Width = 117;
+            this.cognom1DataGridViewTextBoxColumn.Width = 94;
             // 
             // cognom2DataGridViewTextBoxColumn
             // 
             this.cognom2DataGridViewTextBoxColumn.DataPropertyName = "cognom2";
             this.cognom2DataGridViewTextBoxColumn.HeaderText = "cognom2";
             this.cognom2DataGridViewTextBoxColumn.Name = "cognom2DataGridViewTextBoxColumn";
-            this.cognom2DataGridViewTextBoxColumn.Width = 117;
+            this.cognom2DataGridViewTextBoxColumn.Width = 94;
             // 
             // adreçaDataGridViewTextBoxColumn
             // 
             this.adreçaDataGridViewTextBoxColumn.DataPropertyName = "adreça";
             this.adreçaDataGridViewTextBoxColumn.HeaderText = "adreça";
             this.adreçaDataGridViewTextBoxColumn.Name = "adreçaDataGridViewTextBoxColumn";
-            this.adreçaDataGridViewTextBoxColumn.Width = 95;
+            this.adreçaDataGridViewTextBoxColumn.Width = 76;
             // 
             // codipostalDataGridViewTextBoxColumn
             // 
             this.codipostalDataGridViewTextBoxColumn.DataPropertyName = "codi_postal";
             this.codipostalDataGridViewTextBoxColumn.HeaderText = "codi_postal";
             this.codipostalDataGridViewTextBoxColumn.Name = "codipostalDataGridViewTextBoxColumn";
-            this.codipostalDataGridViewTextBoxColumn.Width = 132;
+            this.codipostalDataGridViewTextBoxColumn.Width = 107;
             // 
             // poblacioDataGridViewTextBoxColumn
             // 
             this.poblacioDataGridViewTextBoxColumn.DataPropertyName = "poblacio";
             this.poblacioDataGridViewTextBoxColumn.HeaderText = "poblacio";
             this.poblacioDataGridViewTextBoxColumn.Name = "poblacioDataGridViewTextBoxColumn";
-            this.poblacioDataGridViewTextBoxColumn.Width = 109;
+            this.poblacioDataGridViewTextBoxColumn.Width = 87;
             // 
             // provinciaDataGridViewTextBoxColumn
             // 
             this.provinciaDataGridViewTextBoxColumn.DataPropertyName = "provincia";
             this.provinciaDataGridViewTextBoxColumn.HeaderText = "provincia";
             this.provinciaDataGridViewTextBoxColumn.Name = "provinciaDataGridViewTextBoxColumn";
-            this.provinciaDataGridViewTextBoxColumn.Width = 113;
+            this.provinciaDataGridViewTextBoxColumn.Width = 90;
             // 
             // telefonDataGridViewTextBoxColumn
             // 
             this.telefonDataGridViewTextBoxColumn.DataPropertyName = "telefon";
             this.telefonDataGridViewTextBoxColumn.HeaderText = "telefon";
             this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
-            this.telefonDataGridViewTextBoxColumn.Width = 93;
+            this.telefonDataGridViewTextBoxColumn.Width = 75;
             // 
             // faxDataGridViewTextBoxColumn
             // 
             this.faxDataGridViewTextBoxColumn.DataPropertyName = "fax";
             this.faxDataGridViewTextBoxColumn.HeaderText = "fax";
             this.faxDataGridViewTextBoxColumn.Name = "faxDataGridViewTextBoxColumn";
-            this.faxDataGridViewTextBoxColumn.Width = 61;
+            this.faxDataGridViewTextBoxColumn.Width = 50;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 82;
+            this.emailDataGridViewTextBoxColumn.Width = 66;
             // 
             // clientsBindingSource
             // 
@@ -177,14 +176,14 @@
             // 
             // ClientControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ClientControl";
-            this.Size = new System.Drawing.Size(769, 398);
+            this.Size = new System.Drawing.Size(577, 323);
             this.Load += new System.EventHandler(this.ClientControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();

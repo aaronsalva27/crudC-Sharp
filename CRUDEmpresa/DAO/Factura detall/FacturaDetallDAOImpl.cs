@@ -23,7 +23,7 @@ namespace CRUDEmpresa.DAO.FacturaDetall
             {
                 try
                 {
-                   factura_detall fact = context.factura_detall.First(i => i.id_factura_detall == id);
+                    factura_detall fact = context.factura_detall.First(i => i.id_factura_detall == id);
                     context.factura_detall.Remove(fact);
                     context.SaveChanges();
                 }

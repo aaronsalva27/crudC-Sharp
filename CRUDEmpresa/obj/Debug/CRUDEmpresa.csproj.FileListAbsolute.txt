@@ -69,3 +69,4 @@ C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\itextsharp.xml
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\bin\Debug\itextsharp.dll
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\bin\Debug\itextsharp.xml
+C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.XMLExporter.resources

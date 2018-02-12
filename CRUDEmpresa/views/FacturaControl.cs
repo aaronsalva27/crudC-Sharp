@@ -14,15 +14,39 @@ namespace CRUDEmpresa.views
 {
     public partial class FacturaControl : UserControl
     {
+        /// <summary>
+        /// context de EF para acceder a la BD
+        /// </summary>
         private dbempresaEntities context;
+        /// <summary>
+        /// Check is new row is added
+        /// </summary>
         private Boolean newrow;
+        /// <summary>
+        /// Instancia de la clase menu
+        /// </summary>
         private menu parent;
+        /// <summary>
+        /// Variable que guarda la ultima columna.
+        /// </summary>
         private int deleteColumn;
+        /// <summary>
+        /// Instancia de la clase utilidad UtilityPDF
+        /// </summary>
         private Utils.UtilityPDF pdfUtility;
 
+        /// <summary>
+        /// Lista de clientes
+        /// </summary>
         private List<clients> clientes = new DAOFactory().getClienteDAO().LeerCliente();
 
+        /// <summary>
+        /// Combobox con la lista de clientes
+        /// </summary>
         private ComboBox comboBox = new ComboBox();
+        /// <summary>
+        /// Date picker
+        /// </summary>
         DateTimePicker dtp = new DateTimePicker();
         Rectangle _Rectangle;
 
@@ -35,7 +59,7 @@ namespace CRUDEmpresa.views
             progressBar1.Visible = false;
 
 
-            // add the clients 
+            // add the clients to combobox
             foreach (clients c in clientes)
             {
                 comboBox.Items.Add(c.id_client + "-" + c.nom);
@@ -45,7 +69,7 @@ namespace CRUDEmpresa.views
             comboBox.Visible = false;
             comboBox.TextChanged += ComboBox_TextChanged;
 
-
+            //adding the datepicker to form
             dataGridView1.Controls.Add(dtp);
             dtp.Visible = false;
             dtp.CustomFormat = "dd/MM/yyyy HH:mm";
@@ -54,9 +78,14 @@ namespace CRUDEmpresa.views
             dtp.TextChanged += new EventHandler(dtp_TextChange);
         }
 
+        /// <summary>
+        /// Método que se ejecuta cuando el valor de comboBox cambia.
+        /// Añade el calor del combobox a la celda.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_TextChanged(object sender, EventArgs e)
         {
-
             parent.sendMessage(comboBox.SelectedItem.ToString().Split()[0]);
             dataGridView1.CurrentCell.Value = comboBox.SelectedItem.ToString().Split('-')[0];
             comboBox.Hide();
@@ -68,6 +97,9 @@ namespace CRUDEmpresa.views
             initData();
         }
 
+        /// <summary>
+        /// carga los datos de la BD a la tabla
+        /// </summary>
         private void loadData()
         {
             this.context = new dbempresaEntities();
@@ -76,6 +108,9 @@ namespace CRUDEmpresa.views
             dataGridView1.DataSource = bi;
         }
 
+        /// <summary>
+        /// Settea la columna del ID como solo de lectura y añade el boton de borrar al final de cada row.
+        /// </summary>
         private void initData()
         {
 
@@ -104,6 +139,7 @@ namespace CRUDEmpresa.views
             {
             }
 
+            // if date cell  is clicked change cell with datepicker
             if (e.ColumnIndex == 2 && e.RowIndex >= 0)
             {
                 parent.sendMessage("entra picker");
@@ -113,6 +149,7 @@ namespace CRUDEmpresa.views
                 dtp.Visible = true;
             }
 
+            // if combobox cell  is clicked change cell with combobox
             if (e.ColumnIndex == 1 && e.RowIndex >= 0)
             {
                 parent.sendMessage("entra combo");
@@ -173,6 +210,12 @@ namespace CRUDEmpresa.views
 
         }
 
+        /// <summary>
+        /// Método que se ejecuta cuando el valor del datepicker cambia.
+        /// Añade el calor del combobox a la celda.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtp_TextChange(object sender, EventArgs e)
         {
             DateTime? date = new DateTime(dtp.Value.Ticks);
@@ -193,6 +236,11 @@ namespace CRUDEmpresa.views
             comboBox.Hide();
         }
 
+        /// <summary>
+        /// New entry, change the delete button to save buton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             this.parent.sendMessage("add row  " + dataGridView1.NewRowIndex);
@@ -200,6 +248,11 @@ namespace CRUDEmpresa.views
             dataGridView1.Rows[dataGridView1.NewRowIndex - 1].Cells[deleteColumn].Value = Image.FromFile(Environment.CurrentDirectory + "/images/save.png").GetThumbnailImage(15, 15, null, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Función que se ejecuta cuando hay un error en la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="anError"></param>
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
         {
             MessageBox.Show("Error happened " + anError.Exception.Message.ToString());
@@ -230,6 +283,11 @@ namespace CRUDEmpresa.views
             }
         }
 
+        /// <summary>
+        /// Método que se utiliza para actualizar los registros de la tabla.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1 && dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "0")
@@ -249,6 +307,11 @@ namespace CRUDEmpresa.views
             }
         }
 
+        /// <summary>
+        /// Función que despliega un dialogo y llama a la clase UtilityPDF para generar un pdf de la tabla.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void button1_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)

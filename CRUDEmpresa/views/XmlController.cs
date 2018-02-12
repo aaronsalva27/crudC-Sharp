@@ -11,10 +11,18 @@ using System.Diagnostics;
 
 namespace CRUDEmpresa.views
 {
-
+    /// <summary>
+    /// Formulario que gestiona la importacio de XML
+    /// </summary>
     public partial class XmlController : UserControl
     {
+        /// <summary>
+        /// instancia de la clase utilidad UtilityXml
+        /// </summary>
         private Utils.UtilityXml xmlUtility;
+        /// <summary>
+        /// ruta del fichero
+        /// </summary>
         private string fileRoute;
         public XmlController( string fileRoute)
         {
@@ -24,6 +32,13 @@ namespace CRUDEmpresa.views
 
         }
 
+
+        /// <summary>
+        /// Al cargar la vista llama a la clase UtilityXml para cargar las entradas, cunado se han
+        /// cargado esconde el loader
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void XmlController_Load(object sender, EventArgs e)
         {
             progressBar1.Visible = true;

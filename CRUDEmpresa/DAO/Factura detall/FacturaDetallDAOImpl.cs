@@ -8,8 +8,15 @@ using CRUDEmpresa.EntityFramework;
 namespace CRUDEmpresa.DAO.FacturaDetall
 
 {
+    /// <summary>
+    /// Clase que implementa los métoodos para hacer un crud sobre el objeto factura_detall
+    /// </summary>
     class FacturaDetallDAOImpl : FacturaDetallDAO
     {
+        /// <summary>
+        /// Borra una factura_detall
+        /// </summary>
+        /// <param name="id">id del objeto que se quiere borrar</param>
         public void BorrarFacturaDetall(int id)
         {
             using (var context = new dbempresaEntities())
@@ -27,6 +34,10 @@ namespace CRUDEmpresa.DAO.FacturaDetall
             }
         }
 
+        /// <summary>
+        /// Método que crea un nuevo objeto factura detall.
+        /// </summary>
+        /// <param name="f">objeto que se quiere crear</param>
         public void CrearFacturaDetall(factura_detall f)
         {
             using (var context = new dbempresaEntities())
@@ -36,6 +47,10 @@ namespace CRUDEmpresa.DAO.FacturaDetall
             }
         }
 
+        /// <summary>
+        /// Método que devuelve una lista de factura_detall
+        /// </summary>
+        /// <returns>Devuelve una lista de factura_detall</returns>
         public List<factura_detall> LeerFacturasDetall()
         {
             using (var context = new dbempresaEntities())
@@ -44,6 +59,11 @@ namespace CRUDEmpresa.DAO.FacturaDetall
             }
         }
 
+        /// <summary>
+        /// Devuelve un objeto factura_detall
+        /// </summary>
+        /// <param name="id">id del objeto que se quiere recuperar</param>
+        /// <returns>objeto factura_detall</returns>
         public factura_detall LeerFacturaDetall(int id)
         {
             //Querying with LINQ to Entities 

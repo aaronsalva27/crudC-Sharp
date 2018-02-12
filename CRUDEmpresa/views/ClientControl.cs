@@ -14,9 +14,21 @@ namespace CRUDEmpresa.views
 {
     public partial class ClientControl : UserControl
     {
+        /// <summary>
+        /// context de EF para acceder a la BD
+        /// </summary>
         private dbempresaEntities context;
+        /// <summary>
+        /// Check is new row is added
+        /// </summary>
         private Boolean newrow;
+        /// <summary>
+        /// Instancia de la clase menu
+        /// </summary>
         private menu parent;
+        /// <summary>
+        /// Variable que guarda la ultima columna.
+        /// </summary>
         private int deleteColumn; 
 
         public ClientControl(menu parent)
@@ -26,12 +38,16 @@ namespace CRUDEmpresa.views
             this.Dock = DockStyle.Fill;
         }
 
+
         private void ClientControl_Load(object sender, EventArgs e)
         {
             loadData();
             initData();
         }
 
+        /// <summary>
+        /// carga los datos de la BD
+        /// </summary>
         private void loadData()
         {
             this.context = new dbempresaEntities();
@@ -40,6 +56,9 @@ namespace CRUDEmpresa.views
             dataGridView1.DataSource = bi;
         }
 
+        /// <summary>
+        /// Settea la columna del ID como solo de lectura y añade el boton de borrar al final de cada row.
+        /// </summary>
         private void initData()
         {
 
@@ -131,6 +150,11 @@ namespace CRUDEmpresa.views
             }
         }
 
+        /// <summary>
+        /// New entry, change the delete button to save buton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             this.parent.sendMessage("add row  " + dataGridView1.NewRowIndex);
@@ -138,6 +162,11 @@ namespace CRUDEmpresa.views
             dataGridView1.Rows[dataGridView1.NewRowIndex - 1].Cells[deleteColumn].Value = Image.FromFile(Environment.CurrentDirectory + "/images/save.png").GetThumbnailImage(15, 15, null, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Función que se ejecuta cuando hay un error en la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="anError"></param>
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
         {
             MessageBox.Show("Error happened " + anError.Context.ToString());
@@ -168,6 +197,11 @@ namespace CRUDEmpresa.views
             }
         }
 
+        /// <summary>
+        /// Método que se utiliza para actualizar los registros de la tabla.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1 && dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "0")

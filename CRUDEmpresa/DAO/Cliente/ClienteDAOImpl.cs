@@ -7,8 +7,14 @@ using CRUDEmpresa.EntityFramework;
 
 namespace CRUDEmpresa.DAO.Cliente
 {
+    /// <summary>  
+    /// Clase que implementa los métodos para hacer un crud sobre el objeto Cliente
+    /// </summary>  
     class ClienteDAOImpl : ClienteDAO
     {
+        /// <summary>
+        /// Elimina un CLiente</summary>
+        /// <param name="id"> Variable que representa la id del Cliente que queremos eliminar</param>
         public void BorrarCliente(int id)
         {
             using (var context = new dbempresaEntities())
@@ -26,6 +32,10 @@ namespace CRUDEmpresa.DAO.Cliente
             }
         }
 
+        /// <summary>
+        /// Crea un nuevo usuario</summary>
+        ///  <returns>
+        ///  Devuelve una lista de clientes</returns>
         public void CrearCliente(clients c)
         {
             using (var context = new dbempresaEntities())
@@ -35,6 +45,10 @@ namespace CRUDEmpresa.DAO.Cliente
             }
         }
 
+        /// <summary>
+        /// Devuelve una lista con los clientes</summary>
+        /// <returns>Devuelve una lista de clientes</returns>
+        /// 
         public List<clients> LeerCliente()
         {
             using (var context = new dbempresaEntities())
@@ -43,6 +57,11 @@ namespace CRUDEmpresa.DAO.Cliente
             }
         }
 
+        /// <summary>
+        /// Devuelve un cliente
+        /// </summary>
+        /// <param name="id">id del cliente que queremos recuperar</param>
+        /// <returns>Devuelve un objeto cliente</returns>
         public clients LeerCliente(int id)
         {
             //Querying with LINQ to Entities 

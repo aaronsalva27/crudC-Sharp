@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CRUDEmpresa.DAO.Factura
 {
+    /// <summary>
+    ///  Interficie con la declaracion de los métodos para hacer un crud sobre el objeto Factura.
+    /// </summary>
     interface FacturaDAO
     {
 

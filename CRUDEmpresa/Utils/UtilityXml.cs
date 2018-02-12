@@ -220,7 +220,7 @@ namespace CRUDEmpresa.Utils
             foreach (factura_detall fd in factura_detallList)
             {
 
-                new DAOFactory().getFacturaDetallDAO().CrearFacturaDetall(fd);
+               new DAOFactory().getFacturaDetallDAO().CrearFacturaDetall(fd);
                 this.context.SaveChanges();
 
                 //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal

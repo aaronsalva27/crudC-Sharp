@@ -37,9 +37,7 @@ C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRU
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.exe
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.pdb
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.XmlController.resources
-<<<<<<< HEAD
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.XMLExporter.resources
-=======
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\CRUDEmpresa.exe.config
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\CRUDEmpresa.exe
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\bin\Debug\CRUDEmpresa.pdb
@@ -65,12 +63,10 @@ C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\crudC-Sharp-master\CRUDEmpresa\o
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.DetallControl.resources
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.FacturaControl.resources
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.XmlController.resources
->>>>>>> 103b4284462aab3cb609db3df4a1125e21313605
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.DetallControl.resources
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\obj\Debug\CRUDEmpresa.views.FacturaControl.resources
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\itextsharp.dll
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\bin\Debug\itextsharp.xml
->>>>>>> a78fb689394e8e3055060b0ba443174d4f5520b6
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\bin\Debug\itextsharp.dll
 C:\Users\davrami\Documents\MEGA\DAM\M6\ORM\crudC-Sharp\CRUDEmpresa\bin\Debug\itextsharp.xml
 C:\Users\aaron\OneDrive\Documents\MEGAsync\DAM2\M06\UF2\CRUDEmpresa\CRUDEmpresa\obj\Debug\CRUDEmpresa.XMLExporter.resources

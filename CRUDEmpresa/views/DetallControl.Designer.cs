@@ -51,6 +51,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -96,36 +97,42 @@
             this.idfacturadetallDataGridViewTextBoxColumn.DataPropertyName = "id_factura_detall";
             this.idfacturadetallDataGridViewTextBoxColumn.HeaderText = "id_factura_detall";
             this.idfacturadetallDataGridViewTextBoxColumn.Name = "idfacturadetallDataGridViewTextBoxColumn";
+            this.idfacturadetallDataGridViewTextBoxColumn.Width = 171;
             // 
             // nfacturaDataGridViewTextBoxColumn
             // 
             this.nfacturaDataGridViewTextBoxColumn.DataPropertyName = "n_factura";
             this.nfacturaDataGridViewTextBoxColumn.HeaderText = "n_factura";
             this.nfacturaDataGridViewTextBoxColumn.Name = "nfacturaDataGridViewTextBoxColumn";
+            this.nfacturaDataGridViewTextBoxColumn.Width = 113;
             // 
             // idproducteDataGridViewTextBoxColumn
             // 
             this.idproducteDataGridViewTextBoxColumn.DataPropertyName = "id_producte";
             this.idproducteDataGridViewTextBoxColumn.HeaderText = "id_producte";
             this.idproducteDataGridViewTextBoxColumn.Name = "idproducteDataGridViewTextBoxColumn";
+            this.idproducteDataGridViewTextBoxColumn.Width = 137;
             // 
             // quantitatDataGridViewTextBoxColumn
             // 
             this.quantitatDataGridViewTextBoxColumn.DataPropertyName = "quantitat";
             this.quantitatDataGridViewTextBoxColumn.HeaderText = "quantitat";
             this.quantitatDataGridViewTextBoxColumn.Name = "quantitatDataGridViewTextBoxColumn";
+            this.quantitatDataGridViewTextBoxColumn.Width = 106;
             // 
             // facturaDataGridViewTextBoxColumn
             // 
             this.facturaDataGridViewTextBoxColumn.DataPropertyName = "factura";
             this.facturaDataGridViewTextBoxColumn.HeaderText = "factura";
             this.facturaDataGridViewTextBoxColumn.Name = "facturaDataGridViewTextBoxColumn";
+            this.facturaDataGridViewTextBoxColumn.Width = 92;
             // 
             // productesDataGridViewTextBoxColumn
             // 
             this.productesDataGridViewTextBoxColumn.DataPropertyName = "productes";
             this.productesDataGridViewTextBoxColumn.HeaderText = "productes";
             this.productesDataGridViewTextBoxColumn.Name = "productesDataGridViewTextBoxColumn";
+            this.productesDataGridViewTextBoxColumn.Width = 121;
             // 
             // factura_detallBindingSource
             // 

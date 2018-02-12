@@ -96,7 +96,6 @@ namespace CRUDEmpresa
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void button2_Click(object sender, EventArgs e)
         {
             openFileDialog1.DefaultExt = "xml";

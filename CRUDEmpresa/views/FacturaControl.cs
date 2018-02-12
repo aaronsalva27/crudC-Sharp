@@ -18,6 +18,7 @@ namespace CRUDEmpresa.views
         private Boolean newrow;
         private menu parent;
         private int deleteColumn;
+        private Utils.UtilityPDF pdfUtility;
 
         private List<clients> clientes = new DAOFactory().getClienteDAO().LeerCliente();
 
@@ -31,6 +32,7 @@ namespace CRUDEmpresa.views
             this.parent = parent;
             InitializeComponent();
             this.Dock = DockStyle.Fill;
+            progressBar1.Visible = false;
 
 
             // add the clients 
@@ -244,6 +246,31 @@ namespace CRUDEmpresa.views
                     MessageBox.Show(execp.InnerException.Message);
                 }
 
+            }
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                progressBar1.Visible = true;
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                MessageBox.Show(folderBrowserDialog1.SelectedPath, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                pdfUtility = new Utils.UtilityPDF(folderBrowserDialog1.SelectedPath + @"\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf");
+                // simply start and await the loading task
+                var result = false;
+                result = await Task.Run(() => this.pdfUtility.generatePDF());
+                progressBar1.Visible = false;
+                parent.sendMessage("exportando pdf...");
+                if (result)
+                { //ok,
+                    parent.sendMessage("PDF exportado");
+                }
+                else
+                {
+                    parent.sendMessage("Se ha producido un error...");
+                }
             }
         }
     }

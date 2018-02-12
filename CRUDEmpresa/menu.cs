@@ -107,5 +107,12 @@ namespace CRUDEmpresa
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(new DetallControl(this));
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

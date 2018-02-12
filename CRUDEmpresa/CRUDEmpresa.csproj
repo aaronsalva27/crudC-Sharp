@@ -146,6 +146,12 @@
     <Compile Include="views\XmlController.Designer.cs">
       <DependentUpon>XmlController.cs</DependentUpon>
     </Compile>
+    <Compile Include="XMLExporter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XMLExporter.Designer.cs">
+      <DependentUpon>XMLExporter.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\XmlController.resx">
       <DependentUpon>XmlController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XMLExporter.resx">
+      <DependentUpon>XMLExporter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="EntityFramework\Empresa.edmx">

@@ -158,10 +158,6 @@ namespace CRUDEmpresa.Utils
             {
                 int realId = c.id_client;
                 new DAOFactory().getClienteDAO().CrearCliente(c);
-                //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
-                //clients client = this.context.clients.First(i => i.email == c.email && i.telefon == c.telefon);
-                //clients client = this.context.clients.First(i => i.id_client == max);
-                //client.id_client = c.id_client;
                 this.context.SaveChanges();
                 Debug.WriteLine(" Client ID is " + c.id_client);
                 // modify all the fk
@@ -169,33 +165,20 @@ namespace CRUDEmpresa.Utils
                 {
                     if (f.id_client == realId) f.id_client = c.id_client;
                 }
-
-
             }
+
             foreach (productes pt in producteList)
             {
                 var realId = pt.id_produte;
                 new DAOFactory().getProductoDAO().CrearProducto(pt);
-                this.context.SaveChanges();
-                
-                //el id incremental , hay que volverlo a setear, si no hace el autoincremental normal
-                //productes prod = this.context.productes.First(i => i.producte == p.producte && i.preu == p.preu);
-                //productes prod = this.context.productes.Last<productes>();
-                //int max2 = this.context.productes.Max(p => p.id_produte);
-                //Debug.WriteLine("idmax productes: " + max2);
-
-                //productes prod = this.context.productes.First(i => i.id_produte == max2);
-                //prod.id_produte = pt.id_produte;
                 this.context.SaveChanges();
                 Debug.WriteLine("id productes: " + pt.id_produte+ " "+realId);
                 // modify all the fk
                 foreach (factura_detall fd in factura_detallList)
                 {
                     Debug.WriteLine("real:  " + realId);
-
                     if (fd.id_producte == realId) fd.id_producte = pt.id_produte;
                     Debug.WriteLine("id productes de factura detall: " + fd.id_producte);
-
                 }
 
             }

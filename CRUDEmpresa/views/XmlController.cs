@@ -35,14 +35,13 @@ namespace CRUDEmpresa.views
             progressBar1.Visible = false;
             label1.Text = this.fileRoute;
             if (result) { //ok
-                label2.Text = "La casualidad que has importado un xml \n " +
-                    "y la casualidad de que se ha importado correctamente ";
+                label2.Text = "Se ha importado correctamente el fichero xml";
                 //add data to context
                 this.xmlUtility.addData();
             }
             else
             {
-                label2.Text = "Se ha producido un error...";
+                label2.Text = "Se ha producido un error en la importación, compruebe los datos introducidos...";
             }
         }
 

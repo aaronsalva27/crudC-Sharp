@@ -90,15 +90,12 @@ namespace CRUDEmpresa
             this.stripStatusLabel.Text = message;
         }
 
-<<<<<<< HEAD
-        //import
-=======
+
         /// <summary>
         /// Llama a los métodos para importar los registros de un XML
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
->>>>>>> d922aab0e53667db46d8c6134ea325252d432b4f
         private void button2_Click(object sender, EventArgs e)
         {
             openFileDialog1.DefaultExt = "xml";

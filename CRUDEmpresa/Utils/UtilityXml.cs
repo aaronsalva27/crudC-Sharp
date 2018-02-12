@@ -20,6 +20,9 @@ using CRUDEmpresa.DAO;
 
 namespace CRUDEmpresa.Utils
 {
+    /// <summary>
+    /// Clase utilidad con los métodos para registros a la BD desde un XML.
+    /// </summary>
     class UtilityXml
     {
         public static XmlDocument xmlDoc;
@@ -29,7 +32,11 @@ namespace CRUDEmpresa.Utils
         public static List<productes> producteList;
         private dbempresaEntities context;
 
-
+        /// <summary>
+        /// Métdo que comprueba que la ruta pasada existe y llama al método loadListFromXML 
+        /// </summary>
+        /// <param name="fileRoute">ruta del fichero</param>
+        /// <returns>Boolean</returns>
         public Boolean XMLDocManager(string fileRoute)
         {
             xmlDoc = new XmlDocument();
@@ -50,6 +57,10 @@ namespace CRUDEmpresa.Utils
             }
         }
 
+        /// <summary>
+        /// Método que carga las entradas del XML en el context de la bd
+        /// </summary>
+        /// <returns></returns>
         public bool loadListFromXML()
         {
             if (xmlDoc == null) return false;

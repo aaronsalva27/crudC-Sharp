@@ -12,6 +12,9 @@ using CRUDEmpresa.DAO;
 
 namespace CRUDEmpresa
 {
+    /// <summary>
+    /// Formulario de login
+    /// </summary>
     public partial class login : Form
     {
         private dbempresaEntities context;
@@ -29,6 +32,12 @@ namespace CRUDEmpresa
           
         }
 
+        /// <summary>
+        /// comprueba que el usuario y password son correctos en caso contrario 
+        /// los textbox se pondran en modo warning.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             var username = textBox1.Text;

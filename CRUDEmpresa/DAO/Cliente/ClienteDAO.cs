@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CRUDEmpresa.DAO.Cliente
 {
+    /// <summary>  
+    ///  Interficie donde definimos los metodos para hacer un crud sobre el objeto cliente
+    /// </summary>  
     interface ClienteDAO
     {
         void CrearCliente(clients c);

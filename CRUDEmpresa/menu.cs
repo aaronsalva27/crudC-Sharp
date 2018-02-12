@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace CRUDEmpresa
 {
+    /// <summary>
+    /// Formulario principal donde el resto de vistas se añadiran dentro del contenedor principal
+    /// </summary>
     public partial class menu : Form
     {
         public menu()
@@ -52,6 +55,11 @@ namespace CRUDEmpresa
 
         }
 
+        /// <summary>
+        /// Carga la vista de produtos dentro de mainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProductes_Click(object sender, EventArgs e)
         {
             this.stripStatusLabel.Text = "Productes";
@@ -59,6 +67,11 @@ namespace CRUDEmpresa
             mainPanel.Controls.Add(new ProductosControl(this));
         }
 
+        /// <summary>
+        /// Carga la vista de clientes dentro de mainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClients_Click(object sender, EventArgs e)
         {
             this.stripStatusLabel.Text = "Clients";
@@ -77,7 +90,15 @@ namespace CRUDEmpresa
             this.stripStatusLabel.Text = message;
         }
 
+<<<<<<< HEAD
         //import
+=======
+        /// <summary>
+        /// Llama a los métodos para importar los registros de un XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+>>>>>>> d922aab0e53667db46d8c6134ea325252d432b4f
         private void button2_Click(object sender, EventArgs e)
         {
             openFileDialog1.DefaultExt = "xml";
@@ -98,6 +119,11 @@ namespace CRUDEmpresa
             mainPanel.Controls.Add(new XMLExporter());
         }
 
+        /// <summary>
+        /// Carga la vista de facturas dentro de mainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFacturas_Click(object sender, EventArgs e)
         {
             this.stripStatusLabel.Text = "Factura";
@@ -105,6 +131,11 @@ namespace CRUDEmpresa
             mainPanel.Controls.Add(new FacturaControl(this));
         }
 
+        /// <summary>
+        /// Carga la vista de factura_detall dentro de mainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDetalls_Click(object sender, EventArgs e)
         {
             this.stripStatusLabel.Text = "Detall";

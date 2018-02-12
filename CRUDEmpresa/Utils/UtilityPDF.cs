@@ -12,15 +12,31 @@ using System.Threading.Tasks;
 
 namespace CRUDEmpresa.Utils
 {
+    /// <summary>
+    /// Clase que genera un pdf con la tabla de factura y factura detall
+    /// </summary>
     class UtilityPDF
     {
+        /// <summary>
+        /// ruta del archivo
+        /// </summary>
         private string path;
 
         public static List<clients> clientList;
+        /// <summary>
+        /// lista de facturas
+        /// </summary>
         public static List<factura> facturaList;
+        /// <summary>
+        /// lista de facturas_detall
+        /// </summary>
         public static List<factura_detall> factura_detallList;
         public static List<productes> producteList;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="path">ruta donde se va ha guardar el archivo</param>
         public UtilityPDF(string path)
         {
             this.path = path;
@@ -30,9 +46,13 @@ namespace CRUDEmpresa.Utils
             producteList = new DAOFactory().getProductoDAO().LeerProdutos();
         }
 
+        /// <summary>
+        /// Método que se encarga de maquetar y guardar el pdf
+        /// </summary>
+        /// <returns></returns>
         public Boolean generatePDF()
         {
-            Thread.Sleep(3000); //ja ja
+            Thread.Sleep(3000);
 
             // Creamos el documento con el tamaño de página tradicional
             Document doc = new Document(PageSize.LETTER);
@@ -41,7 +61,6 @@ namespace CRUDEmpresa.Utils
                                         new FileStream(@path, FileMode.Create));
 
             // Le colocamos el título y el autor
-            // **Nota: Esto no será visible en el documento
             doc.AddTitle("resume");
             doc.AddCreator("Savami");
 
@@ -50,7 +69,6 @@ namespace CRUDEmpresa.Utils
 
             // Creamos el tipo de Font que vamos utilizar
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA,10 , iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-
 
             //LOGO
             string imageURL = Environment.CurrentDirectory + "/images/logo.jpg";
@@ -98,7 +116,7 @@ namespace CRUDEmpresa.Utils
             tblPrueba.AddCell(id_Producte);
             tblPrueba.AddCell(Quantitat);
 
-
+            // Añadimos los registros a las celdas con los valores de la lista
             foreach (factura_detall  fd in factura_detallList) {
 
                 idfacturaDetall = new PdfPCell(new Phrase(fd.id_factura_detall.ToString(), _standardFont));
@@ -127,7 +145,6 @@ namespace CRUDEmpresa.Utils
 
             ///////////////////////////////////////////////////////////
             // Creamos una tabla de factura
-            // de nuestros visitante.
             var title2 = new Paragraph("Factura");
             title2.SpacingAfter = 1;
             title.SpacingBefore = 30;
@@ -170,7 +187,7 @@ namespace CRUDEmpresa.Utils
             tblFactura.AddCell(descompte);
             tblFactura.AddCell(IVA);
 
-
+            // Añadimos los registros a las celdas con los valores de la lista
             foreach (factura f in facturaList)
             {
 

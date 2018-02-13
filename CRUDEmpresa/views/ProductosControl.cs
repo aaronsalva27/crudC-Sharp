@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CRUDEmpresa.EntityFramework;
 using CRUDEmpresa.DAO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace CRUDEmpresa.views
 {
@@ -37,7 +38,11 @@ namespace CRUDEmpresa.views
             InitializeComponent();
 
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(28, 94, 85);
-            this.Dock = DockStyle.Fill; 
+
+            this.chart1.Series.Clear();
+
+            this.chart1.Titles.Add("Preus");
+
         }
 
         private void ProductosControl_Load(object sender, EventArgs e)
@@ -57,6 +62,18 @@ namespace CRUDEmpresa.views
             BindingSource bi = new BindingSource();
             bi.DataSource = this.context.productes.ToList();
             dataGridView1.DataSource = bi;
+
+            this.Dock = DockStyle.Fill;
+
+
+            this.chart1.Series.Clear();
+            Series series = this.chart1.Series.Add("Preus");
+            series.ChartType = SeriesChartType.Spline;
+            foreach (productes p in this.context.productes.ToList())
+            {
+                series.Points.AddXY(p.producte.ToString(), p.preu);
+ 
+            }
         }
         /// <summary>
         /// Settea la columna del ID como solo de lectura y añade el boton de borrar al final de cada row.

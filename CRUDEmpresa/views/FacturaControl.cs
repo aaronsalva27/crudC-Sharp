@@ -180,8 +180,11 @@ namespace CRUDEmpresa.views
                 {
                     int id_client = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                     DateTime data = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    int descompte = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()); ;
-                    int iva = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()); ;
+                    int descompte = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()) > 100 ? 100 : int.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    int iva = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()) > 100 ? 100 : int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                   
+
+
 
                     DialogResult result = MessageBox.Show("Guardando siguiente registro:\n", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
@@ -296,6 +299,12 @@ namespace CRUDEmpresa.views
         {
             if (e.RowIndex > -1 && dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "0")
             {
+                dataGridView1.Rows[e.RowIndex].Cells[3].Value = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()) > 100 ? 
+                                                                  100 :  int.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+
+                dataGridView1.Rows[e.RowIndex].Cells[4].Value = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()) > 100 ?
+                                                                  100 : int.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+
                 try
                 {
                     this.parent.sendMessage("valuechanged" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
